@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="name" type="LIST" value="[]"/>
+    <variable name="address" type="LIST" value="[]"/>
+    <variable name="table" type="TABLE" value="[]"/>
+  </variables>
+  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(double-click left button)" delay="0" imageName="1574075901135-anchor-1574075901322.apng" fullImageName="1574075901135.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1" clickType="DOUBLE_CLICK"/>
+  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+  <actions xsi:type="recorder:OcrAction" active="true" actionDetails="(to 'name' rectangle 139 x 19)" delay="0" offsetX="-5" offsetY="1" imageName="1574075924447-anchor-1574075924557.apng" fullImageName="1574075924447.png" type="CONTROL" anchorOffsetX="5" anchorOffsetY="5" varName="name" width="139" height="19" language="English"/>
+  <actions xsi:type="recorder:OcrAction" active="true" actionDetails="(to 'address' rectangle 426 x 35)" delay="0" offsetX="-1" imageName="1574075942873-anchor-1574075943114.apng" fullImageName="1574075942873.png" type="CONTROL" anchorOffsetX="1" varName="address" width="426" height="35" language="English"/>
+  <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'name')" delay="0" comment="" varName="name" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+    <stringToStringConversion targetType="STRING"/>
+    <delimitedListConversion targetType="LIST" trimValues="false"/>
+    <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+  </actions>
+  <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'address')" delay="0" varName="address" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+    <stringToStringConversion targetType="STRING"/>
+    <delimitedListConversion targetType="LIST" trimValues="false"/>
+    <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+  </actions>
+  <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'table')" delay="0" comment="" varName="table">
+    <bigDecimalExpressionHandler/>
+    <listExpressionHandler operationType="PUSH"/>
+    <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="name"/>
+  </actions>
+  <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'table')" delay="0" varName="table">
+    <bigDecimalExpressionHandler/>
+    <listExpressionHandler operationType="PUSH"/>
+    <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="address"/>
+  </actions>
+  <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Praka...op\result.xlsx&quot;)" delay="0" filePath="C:\Users\PrakashPalani\Desktop\result.xlsx" autoSaveFile="true">
+    <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('table' to START:END)" delay="0" sourceVariable="table" coordinateFrom=""/>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

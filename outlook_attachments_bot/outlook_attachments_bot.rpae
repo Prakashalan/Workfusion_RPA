@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="email" type="STRING" value="prakash.palani@rap.ventures"/>
+    <variable name="password" type="SECRET" value="pwd.VALUE"/>
+    <variable name="key" type="LIST" value="['cGRm']"/>
+    <variable name="div" type="NUMBER" value="20"/>
+    <variable name="div_size" type="NUMBER" value="0"/>
+    <variable name="assign" type="NUMBER" value="2"/>
+    <variable name="attachments_name" type="LIST" value="[]"/>
+    <variable name="from" type="LIST" value="[]"/>
+    <variable name="date" type="LIST" value="[]"/>
+    <variable name="inner_div" type="LIST" value="[]"/>
+    <variable name="download_string" type="STRING" value=""/>
+    <variable name="excel_table" type="TABLE" value="[]"/>
+    <variable name="subject" type="LIST" value="[]"/>
+    <variable name="element" type="NUMBER" value="0"/>
+    <variable name="subject_element" type="NUMBER" value="0"/>
+  </variables>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="open_browser" delay="0" groupName="open_browser">
+    <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&amp;redirect_uri=https%3a%2f%2foutlook.office365.com%2fmail%2f&amp;resource=00000002-0000-0ff1-ce00-000000000000&amp;response_mode=form_post&amp;response_type=code+id_token&amp;scope=openid&amp;msafed=0&amp;client-request-id=57f6ef14-2d9b-45b0-bb46-66ab7a9b2827&amp;protectedtoken=true&amp;domain_hint=rap.ventures&amp;nonce=637069992198688410.6adf1b89-1441-42c2-8275-2be493a15c3a&amp;state=DctBDsIgEEBR0HN4BCwzTGFm0XgHbzBQjCRak4YmHr8s3t99a4y5DpfB-hGTYkg-igiCcGQm8Peo6wsyiwMicIQFHWOaHeZKEhTmEtSO9zZ9tX2mtuXf_6FHfz_r2vZa-tL3o54)" delay="0" url="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&amp;redirect_uri=https%3a%2f%2foutlook.office365.com%2fmail%2f&amp;resource=00000002-0000-0ff1-ce00-000000000000&amp;response_mode=form_post&amp;response_type=code+id_token&amp;scope=openid&amp;msafed=0&amp;client-request-id=57f6ef14-2d9b-45b0-bb46-66ab7a9b2827&amp;protectedtoken=true&amp;domain_hint=rap.ventures&amp;nonce=637069992198688410.6adf1b89-1441-42c2-8275-2be493a15c3a&amp;state=DctBDsIgEEBR0HN4BCwzTGFm0XgHbzBQjCRak4YmHr8s3t99a4y5DpfB-hGTYkg-igiCcGQm8Peo6wsyiwMicIQFHWOaHeZKEhTmEtSO9zZ9tX2mtuXf_6FHfz_r2vZa-tL3o54" type="CHROME">
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1571402892743-anchor-1571402892861.apng" fullImageName="1571402892743.png" type="IMAGE" anchorOffsetX="6" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;i0116&quot;] xpath)" delay="0" varName="email" webElementLocator="//*[@id=&quot;i0116&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1571403033851-anchor-1571403033907.apng" fullImageName="1571403033851.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1571403067533-anchor-1571403067560.apng" fullImageName="1571403067533.png" type="IMAGE" anchorOffsetX="45" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;i0118&quot;] xpath)" delay="0" varName="password" webElementLocator="//*[@id=&quot;i0118&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1571403216472-anchor-1571403216497.apng" fullImageName="1571403216472.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1571403260573-anchor-1571403260604.apng" fullImageName="1571403260573.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 12000 ms" delay="12000"/>
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1571404612491-anchor-1571404612502.apng" fullImageName="1571404612491.png" type="IMAGE" webElementLocator="//*[@id=&quot;searchBoxId&quot;]/div[2]/div/input" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 4000 ms" delay="4000"/>
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1571404704780-anchor-1571404704803.apng" fullImageName="1571404704780.png" type="IMAGE" webElementLocator="//*[@id=&quot;filtersButtonId&quot;]/i" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1571748514899-anchor-1571748514926.apng" fullImageName="1571748514899.png" type="IMAGE" webElementLocator="" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="hasattachments:${key}" type="KEY_TYPE"/>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1571406392602-anchor-1571406392619.apng" fullImageName="1571406392602.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:WhileAction" active="true" actionDetails="(div_size &lt;= assign)" delay="0" comment="" leftOperand="${div_size}" rightOperand="${assign}" operator="LESS_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+        <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+          <tryBlock active="true">
+            <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;app&quot;]/div/div[2]/div[1]/div/div[3]/div[2]/div/div[1]/div[2]/div/div/div/div/div/div[${assign}]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+            <actions xsi:type="recorder:FileWriteAction" active="false" actionDetails="('${assign}' to 'C:\Users\Praka...top\count.txt')" delay="0" path="C:\Users\PrakashPalani\Desktop\count.txt" content="${assign}" overwrite="true" encoding="UTF-8"/>
+            <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+            <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;app&quot;]/div/div[2]/div[1]/div/div[3]/div[2]/div/div[3]/div/div/div/div/div[2]/div[1]/div/div[1]/div[2]/div/span/button/span" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;VHquDtYElxQkNvZKxCJct&quot;] xpath)" delay="0" varName="from" webElementLocator="//div[@class=&quot;VHquDtYElxQkNvZKxCJct&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;DWrY3hKxZTZNTwt3mx095&quot;] xpath)" delay="0" varName="date" webElementLocator="//div[@class=&quot;DWrY3hKxZTZNTwt3mx095&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_3AFFqPxHOPsmU-3uBJJtpy _13urZpVOYoeFbQ5LIS2F-T _2mmwVdqCxyAgYvExzOCJwM&quot;] xpath)" delay="0" varName="attachments_name" webElementLocator="//div[@class=&quot;_3AFFqPxHOPsmU-3uBJJtpy _13urZpVOYoeFbQ5LIS2F-T _2mmwVdqCxyAgYvExzOCJwM&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'excel_table')" delay="0" varName="excel_table">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="from"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'excel_table')" delay="0" varName="excel_table">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="date"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'excel_table')" delay="0" varName="excel_table">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="attachments_name"/>
+            </actions>
+            <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Praka...r_details.xlsx&quot;)" delay="0" filePath="C:\Users\PrakashPalani\Desktop\sender_details.xlsx" autoSaveFile="true">
+              <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('excel_table' to A1:END)" delay="0" sourceVariable="excel_table" coordinateFrom="A1" coordinateTo=""/>
+              <actions xsi:type="recorder:ExcelSetActiveCellAction" active="true" actionDetails="(Start of column)" delay="0" cellCoordinates="" cellPosition="START_OF_COLUMN"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'assign')" delay="0" varName="assign">
+              <bigDecimalExpressionHandler expression="${assign}+1"/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+            </actions>
+          </tryBlock>
+          <catchBlock active="true">
+            <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+              <tryBlock active="true">
+                <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;app&quot;]/div/div[2]/div[1]/div/div[3]/div[2]/div/div[1]/div[2]/div/div/div/div/div/div[${assign}]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                <actions xsi:type="recorder:FileWriteAction" active="false" actionDetails="('${assign}' to 'C:\Users\Praka...top\count.txt')" delay="0" path="C:\Users\PrakashPalani\Desktop\count.txt" content="${assign}" overwrite="true" encoding="UTF-8"/>
+                <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click right button)" delay="0" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;app&quot;]/div/div[2]/div[1]/div/div[3]/div[2]/div/div[3]/div/div/div/div/div[2]/div[1]/div/div[1]/div[2]/div/div/div/div" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="2"/>
+                <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" offsetX="-44" offsetY="1" imageName="1571988269313-anchor-1571988269391.apng" fullImageName="1571988269313.png" type="IMAGE" webElementLocator="//*[@id=&quot;id__1266&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;VHquDtYElxQkNvZKxCJct&quot;] xpath)" delay="0" varName="from" webElementLocator="//div[@class=&quot;VHquDtYElxQkNvZKxCJct&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;DWrY3hKxZTZNTwt3mx095&quot;] xpath)" delay="0" varName="date" webElementLocator="//div[@class=&quot;DWrY3hKxZTZNTwt3mx095&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_3AFFqPxHOPsmU-3uBJJtpy _13urZpVOYoeFbQ5LIS2F-T _2mmwVdqCxyAgYvExzOCJwM&quot;] xpath)" delay="0" varName="attachments_name" webElementLocator="//div[@class=&quot;_3AFFqPxHOPsmU-3uBJJtpy _13urZpVOYoeFbQ5LIS2F-T _2mmwVdqCxyAgYvExzOCJwM&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'excel_table')" delay="0" varName="excel_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="from"/>
+                </actions>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'excel_table')" delay="0" varName="excel_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="date"/>
+                </actions>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'excel_table')" delay="0" varName="excel_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="attachments_name"/>
+                </actions>
+                <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Praka...r_details.xlsx&quot;)" delay="0" filePath="C:\Users\PrakashPalani\Desktop\sender_details.xlsx" autoSaveFile="true">
+                  <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('excel_table' to A1:END)" delay="0" sourceVariable="excel_table" coordinateFrom="A1" coordinateTo=""/>
+                  <actions xsi:type="recorder:ExcelSetActiveCellAction" active="true" actionDetails="(Start of column)" delay="0" cellCoordinates="" cellPosition="START_OF_COLUMN"/>
+                </actions>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'assign')" delay="0" varName="assign">
+                  <bigDecimalExpressionHandler expression="${assign}+1"/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+                </actions>
+              </tryBlock>
+              <catchBlock active="true">
+                <actions xsi:type="recorder:FileWriteAction" active="false" actionDetails="('${assign}' to 'C:\Users\Praka...top\count.txt')" delay="0" path="C:\Users\PrakashPalani\Desktop\count.txt" content="${assign}" overwrite="true" encoding="UTF-8"/>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'assign')" delay="0" varName="assign">
+                  <bigDecimalExpressionHandler expression="${assign}+1"/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+                </actions>
+              </catchBlock>
+            </actions>
+          </catchBlock>
+        </actions>
+      </actions>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

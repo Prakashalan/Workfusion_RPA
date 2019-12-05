@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="name" type="STRING" value="redmi note 7 "/>
+    <variable name="rstable" type="TABLE" value="[]"/>
+    <variable name="model" type="LIST" value="[]"/>
+    <variable name="total_results" type="STRING" value=""/>
+    <variable name="price" type="LIST" value="[]"/>
+    <variable name="total_value" type="STRING" value=""/>
+    <variable name="loop_variable" type="NUMBER" value="1"/>
+    <variable name="result" type="NUMBER" value="0"/>
+    <variable name="looptimes" type="NUMBER" value="0"/>
+  </variables>
+  <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(https://www.flipkart.com)" delay="3000" url="https://www.flipkart.com" type="CHROME" waitTimeout="60000">
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566796632178-anchor-1566796632194.apng" fullImageName="1566796632178.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+  </actions>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;container&quot;]/div/div[1]/div[1]/div[2]/div[2]/form/div/div/input xpath)" delay="0" comment="" varName="name" webElementLocator="//*[@id=&quot;container&quot;]/div/div[1]/div[1]/div[2]/div[2]/form/div/div/input" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" offsetX="-8" offsetY="-1" imageName="1566795651539-anchor-1566795652227-copy.apng" fullImageName="1566795651539.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;container&quot;]/div/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div/span xpath)" delay="0" comment="" varName="total_value" webElementLocator="//*[@id=&quot;container&quot;]/div/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div/span" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_3wU53n&quot;] xpath)" delay="0" varName="model" webElementLocator="//div[@class=&quot;_3wU53n&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_1vC4OE _2rQ-NK&quot;] xpath)" delay="0" varName="price" webElementLocator="//div[@class=&quot;_1vC4OE _2rQ-NK&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'rstable')" delay="0" varName="rstable">
+      <bigDecimalExpressionHandler/>
+      <listExpressionHandler operationType="PUSH"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="model"/>
+    </actions>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'rstable')" delay="0" varName="rstable">
+      <bigDecimalExpressionHandler/>
+      <listExpressionHandler operationType="PUSH"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="price"/>
+    </actions>
+    <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;&#x9;&#x9;input = [&quot;total_value&quot;,&quot;model&quot;],&#xD;&#xA;&#x9;&#x9;output = 'total_results'&#xD;&#xA;&#xD;&#xA;)&#xD;&#xA;def customScript()  {&#xD;&#xA;&#xD;&#xA;       def total_results = total_value.split(&quot; &quot;)[6]&#xD;&#xA;       &#xD;&#xA;        &#xD;&#xA;       &#xD;&#xA;&#x9;&#x9;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'total_results')" delay="0" comment="" varName="total_results" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+      <stringToStringConversion targetType="STRING"/>
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(to 'result')" delay="0" comment="" varName="result" activeConversion="SIMPLE_NUMBER">
+      <stringToStringConversion targetType="STRING"/>
+      <simpleNumberConversion targetType="NUMBER"/>
+      <booleanConversion targetType="BOOLEAN"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'looptimes')" delay="0" varName="looptimes">
+      <bigDecimalExpressionHandler expression="${result}/24"/>
+      <listExpressionHandler operationType="PUSH"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'looptimes')" delay="0" comment="    " varName="looptimes" activeConversion="SIMPLE_NUMBER" type="FROM_VARIABLE">
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+      <actions xsi:type="recorder:WhileAction" active="true" actionDetails="(loop_variable &lt;= looptimes)" delay="0" comment="" leftOperand="${loop_variable}" rightOperand="${looptimes}" operator="LESS_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+        <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'loop_variable')" delay="0" varName="loop_variable">
+          <bigDecimalExpressionHandler expression=" ${loop_variable} +1"/>
+          <listExpressionHandler operationType="PUSH"/>
+          <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+        </actions>
+        <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'loop_variable')" delay="0" varName="loop_variable">
+          <bigDecimalExpressionHandler expression=" ${loop_variable} +1"/>
+          <listExpressionHandler operationType="PUSH"/>
+          <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+        </actions>
+        <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'loop_variable')" delay="0" varName="loop_variable">
+          <bigDecimalExpressionHandler expression=" ${loop_variable} +1"/>
+          <listExpressionHandler operationType="PUSH"/>
+          <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+        </actions>
+      </actions>
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" offsetX="-1" imageName="1574069549987-anchor-1574069550012.apng" fullImageName="1574069549987.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+      <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_3wU53n&quot;] xpath)" delay="0" varName="model" webElementLocator="//div[@class=&quot;_3wU53n&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+      <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_1vC4OE _2rQ-NK&quot;] xpath)" delay="0" varName="price" webElementLocator="//div[@class=&quot;_1vC4OE _2rQ-NK&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="innerText"/>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+      <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'rstable')" delay="0" varName="rstable">
+        <bigDecimalExpressionHandler/>
+        <listExpressionHandler operationType="PUSH"/>
+        <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="model"/>
+      </actions>
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+      <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'rstable')" delay="0" varName="rstable">
+        <bigDecimalExpressionHandler/>
+        <listExpressionHandler operationType="PUSH"/>
+        <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="price"/>
+      </actions>
+      <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'loop_variable')" delay="0" varName="loop_variable">
+        <bigDecimalExpressionHandler expression=" ${loop_variable} +1"/>
+        <listExpressionHandler operationType="PUSH"/>
+        <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+      </actions>
+      <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Praka...op\result.xlsx&quot;)" delay="0" filePath="C:\Users\PrakashPalani\Desktop\result.xlsx" autoSaveFile="true">
+        <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('rstable' to A1:END)" delay="0" sourceVariable="rstable" coordinateFrom="A1" coordinateTo=""/>
+      </actions>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

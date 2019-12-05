@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="listofdiv" type="LIST" value="[]"/>
+  </variables>
+  <actions xsi:type="recorder:OpenURLAction" active="true" delay="0">
+    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_1xP-XmXM1GGHpRKCCeOKjP&quot;] xpath)" delay="0" varName="listofdiv" webElementLocator="//div[@class=&quot;_1xP-XmXM1GGHpRKCCeOKjP&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'listofdiv')" delay="0" varName="listofdiv" activeConversion="DELIMITED_LIST" type="FROM_VARIABLE">
+      <delimitedListConversion targetType="LIST" valueDelimiter="\r\n" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ForeachAction" active="false" actionDetails="(div) in (listofdiv)" delay="0" varName="listofdiv" pointerName="div">
+      <actions xsi:type="recorder:MouseClickAction" active="false" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

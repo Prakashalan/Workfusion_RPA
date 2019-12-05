@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="file_name_template" type="STRING" value="%USERPROFILE%"/>
+    <variable name="file_list" type="TABLE" value="[('SW1hZ2luZSB5b3UgbmVlZCB0byBkbyBhIHNpbXBsZSB0aGluZyBtYW55IG1hbnkgdGltZXMgaW4gYSByb3cuLi4gQm9vb29vb3JpbmcuLi4gTm90IGZvciBhIGJvdCA6KSBMZXQgbWUgY3JlYXRlIGEgZmV3IGZpbGVzIGFuZCBzYXZlIHRoZW0gZm9yIHlvdS4=', 'JVVTRVJQUk9GSUxFJVxEb2N1bWVudHNcQm90Q3JlYXRlZEhlbGxvV29ybGQxLnR4dA==');('VGhpcyBpcyAybmQgZmlsZS4uLg==', 'JVVTRVJQUk9GSUxFJVxEb2N1bWVudHNcQm90Q3JlYXRlZEhlbGxvV29ybGQyLnR4dA==');('VGhpcyBpcyAzcmQuLi4=', 'JVVTRVJQUk9GSUxFJVxEb2N1bWVudHNcQm90Q3JlYXRlZEhlbGxvV29ybGQzLnR4dA==');('VGhpcyBpcyA0dGguLi4gYW5kIGFsbCBvZiB0aGVtIGFyZSBzYXZlZCB0byAiTXkgZG9jdW1lbnRzIg==', 'JVVTRVJQUk9GSUxFJVxEb2N1bWVudHNcQm90Q3JlYXRlZEhlbGxvV29ybGQ0LnR4dA==')]"/>
+  </variables>
+  <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(row) in (file_list)" delay="0" comment="This demo opens notepad, types some text there and saves file in user temp folder. Texts and file names and configured in file_list variable. &#xD;&#xA;If you edit file names, be sure to adjust file_name_template variable as well - it is used to find out file names out of other things.&#xD;&#xA;&#xD;&#xA;Before running this demo ensure that there is no open windows with names similar to names used here - any notepad windows, Save As or Confirm Save As dialogs." varName="file_list" pointerName="row">
+    <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(element) in (row)" delay="0" varName="row" pointerName="element">
+      <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(element contains file_name_template)" delay="0" leftOperand="${element}" rightOperand="${file_name_template}" operator="CONTAINS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+        <ifBlock active="true">
+          <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Untitled - Notepad)" delay="0" clazz="" title="Untitled - Notepad" timeoutMs="0" modeType="SELECTED">
+            <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+s)" delay="2300" modifiers="2" paramString="NATIVE_KEY_TYPED,keyCode=0,keyText=Undefined,keyChar='s',modifiers=Ctrl,keyLocation=KEY_LOCATION_UNKNOWN,rawCode=83" text="s" rawCode="83" keyChar="115" type="HOT_KEY_PRESS"/>
+          </actions>
+          <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Save As)" delay="500" clazz="" title="Save As" timeoutMs="0" modeType="SELECTED">
+            <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(from variable 'element')" delay="3000" comment="%USERPROFILE%\Documents\ will work on Win7 and Win10 and may not work on other Win versions. Also this location can be moved somewhere else. &#xD;&#xA;So %temp% looks to be more universal." paramString="" varName="element" text="" type="TEXT_FROM_VAR"/>
+            <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Alt+s)" delay="1200" modifiers="8" paramString="NATIVE_KEY_TYPED,keyCode=0,keyText=Undefined,keyChar='s',modifiers=Alt,keyLocation=KEY_LOCATION_UNKNOWN,rawCode=83" text="s" rawCode="83" keyChar="115" type="HOT_KEY_PRESS"/>
+          </actions>
+          <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+            <tryBlock active="true">
+              <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Confirm Save As)" delay="500" clazz="" title="Confirm Save As" timeoutMs="0" modeType="SELECTED"/>
+              <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Alt+y)" delay="100" comment="Yes" modifiers="8" paramString="NATIVE_KEY_TYPED,keyCode=0,keyText=Undefined,keyChar='y',modifiers=Alt,keyLocation=KEY_LOCATION_UNKNOWN,rawCode=89" text="y" rawCode="89" keyChar="121" type="HOT_KEY_PRESS"/>
+            </tryBlock>
+            <catchBlock active="true"/>
+          </actions>
+          <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(notepad)" delay="0" clazz="" title="(?i).*\Qnotepad\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+            <actions xsi:type="recorder:CloseCurrentWindowAction" active="true" actionDetails="" delay="0"/>
+          </actions>
+        </ifBlock>
+        <elseBlock active="true">
+          <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Shell_TrayWnd)" delay="0" clazz="Shell_TrayWnd" title="" timeoutMs="0" modeType="SELECTED">
+            <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Win+r)" delay="1000" modifiers="4" paramString="NATIVE_KEY_TYPED,keyCode=0,keyText=Undefined,keyChar='r',modifiers=Meta,keyLocation=KEY_LOCATION_UNKNOWN,rawCode=82" text="r" rawCode="82" keyChar="114" type="HOT_KEY_PRESS"/>
+          </actions>
+          <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Run)" delay="0" clazz="" title="(?i).*\QRun\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+            <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="700" paramString="" text="notepad" type="KEY_TYPE"/>
+            <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="1700" paramString="NATIVE_KEY_PRESSED,keyCode=28,keyText=Enter,keyChar=Undefined,keyLocation=KEY_LOCATION_STANDARD,rawCode=13" text="{ENTER}" rawCode="10" keyCode="28" keyChar="65535" keyLocation="1"/>
+          </actions>
+          <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(notepad)" delay="1000" clazz="" title="(?i).*\Qnotepad\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+            <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(from variable 'element')" delay="1200" paramString="" varName="element" text="" type="TEXT_FROM_VAR"/>
+          </actions>
+        </elseBlock>
+      </actions>
+    </actions>
+  </actions>
+  <actions xsi:type="recorder:WhileAction" active="true" actionDetails="(&quot;&quot; = &quot;&quot;)" delay="0" leftOperandType="STRING" rightOperandType="STRING"/>
+</recorder:ActionFlow>

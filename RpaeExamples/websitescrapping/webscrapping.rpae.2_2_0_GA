@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.2.0" ignoreDelays="false">
+  <variables>
+    <variable name="date_column" type="LIST" value="[]"/>
+    <variable name="temporary_table" type="TABLE" value="[]"/>
+    <variable name="file_path" type="STRING" value="C:\Users\Praveena\studio\press_releases.xlsx"/>
+    <variable name="title_column" type="LIST" value="[]"/>
+    <variable name="link_column" type="LIST" value="[]"/>
+    <variable name="date_cell" type="STRING" value="Date"/>
+    <variable name="secgov_url" type="STRING" value="https://www.sec.gov/news/pressreleases"/>
+    <variable name="title_cell" type="STRING" value="Title"/>
+    <variable name="release_no_cell" type="STRING" value="Release No."/>
+    <variable name="user_email" type="STRING" value="user@test.com"/>
+    <variable name="text_for_subject" type="STRING" value="Press Releases for"/>
+    <variable name="current_date" type="DATE" value="2019-01-31T12:44:28+03:00[Europe/Minsk]"/>
+    <variable name="start_date" type="DATE" value="2019-02-01T15:44:21+03:00[Europe/Minsk]"/>
+    <variable name="final_table" type="TABLE" value="[]"/>
+    <variable name="press_release_date" type="DATE" value="2019-02-05T13:08:21+03:00[Europe/Minsk]"/>
+    <variable name="date_includes_september" type="STRING" value=""/>
+    <variable name="start_date_string" type="STRING" value=""/>
+    <variable name="current_date_string" type="STRING" value=""/>
+    <variable name="subject_start" type="STRING" value=""/>
+    <variable name="subject" type="STRING" value=""/>
+    <variable name="release_no_column" type="LIST" value="[]"/>
+    <variable name="link_cell" type="STRING" value="Link"/>
+  </variables>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="READ ME" delay="0" comment="KB page: http://rpax.pro/rpae-webscraping-4f84a" groupName="READ ME"/>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Calculate period for press-releases" delay="0" groupName="Calculate period for press-releases">
+    <actions xsi:type="recorder:ConstantValueAction" active="true" actionDetails="(to 'current_date' = Now) - DATE" delay="0" comment="This action sets current date to the variable &quot;current_date&quot;." varName="current_date" stringValue="" numberValue="0" booleanValue="false" dateTimeValue="2019-01-16T14:54:21+03:00[Europe/Minsk]" useCurrentDate="true"/>
+    <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="(calculate the date week before)" delay="0" comment="This custom script calculates the date week before the current date and saves &#xD;&#xA;it to variable &quot;start_date&quot;." name="calculate the date week before" script="@CustomScriptAction(&#xD;&#xA;    input = ['current_date'],&#xD;&#xA;    output = 'start_date'&#xD;&#xA;)&#xD;&#xA;def customeScript() {&#xD;&#xA;    def weekBefore = current_date.minus(java.time.Period.ofWeeks(1))&#xD;&#xA;    start_date = RDateTime.of(&#xD;&#xA;    weekBefore.year.intValue(),&#xD;&#xA;    weekBefore.month.value,&#xD;&#xA;    weekBefore.dayOfMonth.intValue(),&#xD;&#xA;    0,0,0,&#xD;&#xA;    weekBefore.zone)&#xD;&#xA;}"/>
+  </actions>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Open website, scrapping and filtering data" delay="0" groupName="Open website, scrapping and filtering data">
+    <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+      <tryBlock active="true">
+        <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Open website, scraping and filtering data (Google Chrome)" delay="0" groupName="Open website, scraping and filtering data (Google Chrome)">
+          <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(${secgov_url})" delay="0" comment="This action opens website from the string variable &quot;secgov_url&quot;." url="${secgov_url}" type="CHROME">
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[1]/time xpath)" delay="0" comment="This action saves dates of press releases to a List variable &quot;date_column&quot;." varName="date_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[1]/time" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a xpath)" delay="0" comment="This action saves titles of press releases to a List variable &quot;title_column&quot;." varName="title_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a xpath)" delay="0" comment="This action saves links for press releases to a List variable &quot;link_column&quot;." varName="link_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="href"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody//tr/td[3] xpath)" delay="0" comment="This actions saves numbers of press releases to a List variable &#xD;&#xA;&quot;release_no_column&quot;." varName="release_no_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody//tr/td[3]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false" elementAttribute="text"/>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;date_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="date_column"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;title_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="title_column"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;link_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="link_column"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;release_no_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="release_no_column"/>
+            </actions>
+          </actions>
+          <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(row) in (temporary_table)" delay="0" comment="All actions nested in For Each loop will be performed for each row in table &#xD;&#xA;'temporary_table'." varName="temporary_table" pointerName="row">
+            <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="Press release dates on sec.gov are written in 3 different ways&#xD;&#xA;&#xD;&#xA;Actions in this group will apply 3 different formats one-by-one to convert the &#xD;&#xA;press release date into a DateTime variable.&#xD;&#xA;&#xD;&#xA;The bot will try to do the action in &quot;Try to complete&quot; block.&#xD;&#xA;If it fails, it will then try to do actions in &quot;If an exception occurred&quot; block.">
+              <tryBlock active="true">
+                <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="The action will convert the press release date stored in the 1st cell of each &#xD;&#xA;row in table 'temporary_table' into a DateTime variable.&#xD;&#xA;&#xD;&#xA;The action will work for dates in the following format:&#xD;&#xA;Feb. 6, 2019&#xD;&#xA;Jun. 23, 2018, etc." targetVariable="press_release_date" direction="STRING_TO_TYPE" inputMask="MMM. d, yyyy" inputLocale="en" outputMask="MMM dd,yyy" outputLocale="en-US" input="${row[1]}"/>
+              </tryBlock>
+              <catchBlock active="true">
+                <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="Press release dates on sec.gov are written in 3 different ways&#xD;&#xA;&#xD;&#xA;Actions below will be used to convert press release date into a DateTime &#xD;&#xA;variable if the 1st format (step 16) didn't work.&#xD;&#xA;&#xD;&#xA;The bot will try to do the action in &quot;Try to complete&quot; block and use.&#xD;&#xA;If it fails, it will then try to do actions in &quot;If an exception occurred&quot; block.">
+                  <tryBlock active="true">
+                    <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="The bot will try to perform this action is step 16 fails.&#xD;&#xA;&#xD;&#xA;The action will convert the press release date stored in the 1st cell of each row &#xD;&#xA;in table 'temporary_table' into a DateTime variable.&#xD;&#xA;&#xD;&#xA;The action will work for dates in the following format:&#xD;&#xA;February 6, 2019&#xD;&#xA;June 23, 2018, etc." targetVariable="press_release_date" direction="STRING_TO_TYPE" inputMask="MMMM d, yyyy" inputLocale="en-US" outputMask="MMM dd,yyy" outputLocale="en-US" input="${row[1]}"/>
+                  </tryBlock>
+                  <catchBlock active="true">
+                    <actions xsi:type="recorder:ConstantValueAction" active="true" actionDetails="(to 'date_includes_september' = '${row[1]}...) - STRING" delay="0" comment="The bot will try to perform the actions in this group if steps 16 and 18 failed.&#xD;&#xA;It happens if the press release date on sec.gov website is written in this format:&#xD;&#xA;Sept. 24, 2018&#xD;&#xA;Sept 2, 2017&#xD;&#xA;etc.&#xD;&#xA;&#xD;&#xA;The action copies the value stored in the 1st cell of each row in table &#xD;&#xA;'temporary_table' in a String variable 'date_includes_september'." varName="date_includes_september" stringValue="${row[1]}" numberValue="0" booleanValue="false" useCurrentDate="false"/>
+                    <actions xsi:type="recorder:TextReplaceAction" active="true" actionDetails="(Sept. to September in 'date_includes_september' to 'date_includes_september')" delay="0" comment="The action replaces text 'Sept.' with text 'September' in variable &#xD;&#xA;'date_includes_september'" targetVariable="date_includes_september" sourceVariable="date_includes_september" find="Sept." replace="September"/>
+                    <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="The action will convert the value stored in string variable &#xD;&#xA;'date_includes_september' into a DateTime variable." targetVariable="press_release_date" direction="STRING_TO_TYPE" inputMask="MMMM d, yyyy" inputLocale="en-US" outputMask="MMM dd,yyy" outputLocale="en-US" input="${date_includes_september}"/>
+                  </catchBlock>
+                </actions>
+              </catchBlock>
+            </actions>
+            <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(press_release_date >= start_date)" delay="0" comment="The action compares the date stored in variable 'press_release_date' with the &#xD;&#xA;date in variable 'start_date'.&#xD;&#xA;&#xD;&#xA;If it greater or equals to it, the bot will perform actions(s) from the &quot;Then&quot; block." leftOperand="${press_release_date}" rightOperand="${start_date}" operator="GREATER_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+              <ifBlock active="true">
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'final_table')" delay="0" comment="The action adds a row from table variable 'temporary_table' to table variable &#xD;&#xA;'final_table'." varName="final_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="row"/>
+                </actions>
+              </ifBlock>
+              <elseBlock active="true"/>
+            </actions>
+          </actions>
+        </actions>
+      </tryBlock>
+      <catchBlock active="true">
+        <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+          <tryBlock active="true">
+            <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Open website, scraping and filtering data (Firefox)" delay="0" groupName="Open website, scraping and filtering data (Firefox)">
+              <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(${secgov_url})" delay="0" comment="This action opens website from the string variable &quot;secgov_url&quot;." url="${secgov_url}">
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[1]/time xpath)" delay="0" comment="This action saves dates of press releases to a List variable &quot;date_column&quot;." varName="date_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[1]/time" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a xpath)" delay="0" comment="This action saves titles of press releases to a List variable &quot;title_column&quot;." varName="title_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a xpath)" delay="0" comment="This action saves links for press releases to a List variable &quot;link_column&quot;." varName="link_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="href"/>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody//tr/td[3] xpath)" delay="0" comment="This actions saves numbers of press releases to a List variable &#xD;&#xA;&quot;release_no_column&quot;." varName="release_no_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody//tr/td[3]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false" elementAttribute="text"/>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;date_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="date_column"/>
+                </actions>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;title_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="title_column"/>
+                </actions>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;link_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="link_column"/>
+                </actions>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;release_no_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="release_no_column"/>
+                </actions>
+              </actions>
+              <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(row) in (temporary_table)" delay="0" comment="All actions nested in For Each loop will be performed for each row in table &#xD;&#xA;'temporary_table'." varName="temporary_table" pointerName="row">
+                <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="Press release dates on sec.gov are written in 3 different ways&#xD;&#xA;&#xD;&#xA;Actions in this group will apply 3 different formats one-by-one to convert the &#xD;&#xA;press release date into a DateTime variable.&#xD;&#xA;&#xD;&#xA;The bot will try to do the action in &quot;Try to complete&quot; block.&#xD;&#xA;If it fails, it will then try to do actions in &quot;If an exception occurred&quot; block.">
+                  <tryBlock active="true">
+                    <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="The action will convert the press release date stored in the 1st cell of each &#xD;&#xA;row in table 'temporary_table' into a DateTime variable.&#xD;&#xA;&#xD;&#xA;The action will work for dates in the following format:&#xD;&#xA;Feb. 6, 2019&#xD;&#xA;Jun. 23, 2018, etc." targetVariable="press_release_date" direction="STRING_TO_TYPE" inputMask="MMM. d, yyyy" inputLocale="en" outputMask="MMM dd,yyy" outputLocale="en-US" input="${row[1]}"/>
+                  </tryBlock>
+                  <catchBlock active="true">
+                    <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="Press release dates on sec.gov are written in 3 different ways&#xD;&#xA;&#xD;&#xA;Actions below will be used to convert press release date into a DateTime &#xD;&#xA;variable if the 1st format (step 16) didn't work.&#xD;&#xA;&#xD;&#xA;The bot will try to do the action in &quot;Try to complete&quot; block and use.&#xD;&#xA;If it fails, it will then try to do actions in &quot;If an exception occurred&quot; block.">
+                      <tryBlock active="true">
+                        <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="The bot will try to perform this action is step 16 fails.&#xD;&#xA;&#xD;&#xA;The action will convert the press release date stored in the 1st cell of each row &#xD;&#xA;in table 'temporary_table' into a DateTime variable.&#xD;&#xA;&#xD;&#xA;The action will work for dates in the following format:&#xD;&#xA;February 6, 2019&#xD;&#xA;June 23, 2018, etc." targetVariable="press_release_date" direction="STRING_TO_TYPE" inputMask="MMMM d, yyyy" inputLocale="en-US" outputMask="MMM dd,yyy" outputLocale="en-US" input="${row[1]}"/>
+                      </tryBlock>
+                      <catchBlock active="true">
+                        <actions xsi:type="recorder:ConstantValueAction" active="true" actionDetails="(to 'date_includes_september' = '${row[1]}...) - STRING" delay="0" comment="The bot will try to perform the actions in this group if steps 16 and 18 failed.&#xD;&#xA;It happens if the press release date on sec.gov website is written in this format:&#xD;&#xA;Sept. 24, 2018&#xD;&#xA;Sept 2, 2017&#xD;&#xA;etc.&#xD;&#xA;&#xD;&#xA;The action copies the value stored in the 1st cell of each row in table &#xD;&#xA;'temporary_table' in a String variable 'date_includes_september'." varName="date_includes_september" stringValue="${row[1]}" numberValue="0" booleanValue="false" useCurrentDate="false"/>
+                        <actions xsi:type="recorder:TextReplaceAction" active="true" actionDetails="(Sept. to September in 'date_includes_september' to 'date_includes_september')" delay="0" comment="The action replaces text 'Sept.' with text 'September' in variable &#xD;&#xA;'date_includes_september'" targetVariable="date_includes_september" sourceVariable="date_includes_september" find="Sept." replace="September"/>
+                        <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="The action will convert the value stored in string variable &#xD;&#xA;'date_includes_september' into a DateTime variable." targetVariable="press_release_date" direction="STRING_TO_TYPE" inputMask="MMMM d, yyyy" inputLocale="en-US" outputMask="MMM dd,yyy" outputLocale="en-US" input="${date_includes_september}"/>
+                      </catchBlock>
+                    </actions>
+                  </catchBlock>
+                </actions>
+                <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(press_release_date >= start_date)" delay="0" comment="The action compares the date stored in variable 'press_release_date' with the &#xD;&#xA;date in variable 'start_date'.&#xD;&#xA;&#xD;&#xA;If it greater or equals to it, the bot will perform actions(s) from the &quot;Then&quot; block." leftOperand="${press_release_date}" rightOperand="${start_date}" operator="GREATER_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+                  <ifBlock active="true">
+                    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'final_table')" delay="0" comment="The action adds a row from table variable 'temporary_table' to table variable &#xD;&#xA;'final_table'." varName="final_table">
+                      <bigDecimalExpressionHandler/>
+                      <listExpressionHandler operationType="PUSH"/>
+                      <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="row"/>
+                    </actions>
+                  </ifBlock>
+                  <elseBlock active="true"/>
+                </actions>
+              </actions>
+            </actions>
+          </tryBlock>
+          <catchBlock active="true">
+            <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Open website, scraping and filtering data (Internet Explorer)" delay="0" groupName="Open website, scraping and filtering data (Internet Explorer)">
+              <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(${secgov_url})" delay="0" comment="This action opens website from the string variable &quot;secgov_url&quot;." url="${secgov_url}" type="IE">
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[1]/time xpath)" delay="0" comment="This action saves dates of press releases to a List variable &quot;date_column&quot;." varName="date_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[1]/time" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a xpath)" delay="0" comment="This action saves titles of press releases to a List variable &quot;title_column&quot;." varName="title_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a xpath)" delay="0" comment="This action saves links for press releases to a List variable &quot;link_column&quot;." varName="link_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody/tr/td[2]/a" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="href"/>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;DataTables_Table_0&quot;]/tbody//tr/td[3] xpath)" delay="0" comment="This actions saves numbers of press releases to a List variable &#xD;&#xA;&quot;release_no_column&quot;." varName="release_no_column" webElementLocator="//*[@id=&quot;DataTables_Table_0&quot;]/tbody//tr/td[3]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false" elementAttribute="text"/>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;date_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="date_column"/>
+                </actions>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;title_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="title_column"/>
+                </actions>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;link_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="link_column"/>
+                </actions>
+                <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'temporary_table')" delay="0" comment="This action adds &quot;release_no_column&quot; to the &quot;temporary_table&quot; as a column." varName="temporary_table">
+                  <bigDecimalExpressionHandler/>
+                  <listExpressionHandler operationType="PUSH"/>
+                  <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="release_no_column"/>
+                </actions>
+              </actions>
+              <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(row) in (temporary_table)" delay="0" comment="All actions nested in For Each loop will be performed for each row in table &#xD;&#xA;'temporary_table'." varName="temporary_table" pointerName="row">
+                <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="Press release dates on sec.gov are written in 3 different ways&#xD;&#xA;&#xD;&#xA;Actions in this group will apply 3 different formats one-by-one to convert the &#xD;&#xA;press release date into a DateTime variable.&#xD;&#xA;&#xD;&#xA;The bot will try to do the action in &quot;Try to complete&quot; block.&#xD;&#xA;If it fails, it will then try to do actions in &quot;If an exception occurred&quot; block.">
+                  <tryBlock active="true">
+                    <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="The action will convert the press release date stored in the 1st cell of each &#xD;&#xA;row in table 'temporary_table' into a DateTime variable.&#xD;&#xA;&#xD;&#xA;The action will work for dates in the following format:&#xD;&#xA;Feb. 6, 2019&#xD;&#xA;Jun. 23, 2018, etc." targetVariable="press_release_date" direction="STRING_TO_TYPE" inputMask="MMM. d, yyyy" inputLocale="en" outputMask="MMM dd,yyy" outputLocale="en-US" input="${row[1]}"/>
+                  </tryBlock>
+                  <catchBlock active="true">
+                    <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="Press release dates on sec.gov are written in 3 different ways&#xD;&#xA;&#xD;&#xA;Actions below will be used to convert press release date into a DateTime &#xD;&#xA;variable if the 1st format (step 16) didn't work.&#xD;&#xA;&#xD;&#xA;The bot will try to do the action in &quot;Try to complete&quot; block and use.&#xD;&#xA;If it fails, it will then try to do actions in &quot;If an exception occurred&quot; block.">
+                      <tryBlock active="true">
+                        <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="The bot will try to perform this action is step 16 fails.&#xD;&#xA;&#xD;&#xA;The action will convert the press release date stored in the 1st cell of each row &#xD;&#xA;in table 'temporary_table' into a DateTime variable.&#xD;&#xA;&#xD;&#xA;The action will work for dates in the following format:&#xD;&#xA;February 6, 2019&#xD;&#xA;June 23, 2018, etc." targetVariable="press_release_date" direction="STRING_TO_TYPE" inputMask="MMMM d, yyyy" inputLocale="en-US" outputMask="MMM dd,yyy" outputLocale="en-US" input="${row[1]}"/>
+                      </tryBlock>
+                      <catchBlock active="true">
+                        <actions xsi:type="recorder:ConstantValueAction" active="true" actionDetails="(to 'date_includes_september' = '${row[1]}...) - STRING" delay="0" comment="The bot will try to perform the actions in this group if steps 16 and 18 failed.&#xD;&#xA;It happens if the press release date on sec.gov website is written in this format:&#xD;&#xA;Sept. 24, 2018&#xD;&#xA;Sept 2, 2017&#xD;&#xA;etc.&#xD;&#xA;&#xD;&#xA;The action copies the value stored in the 1st cell of each row in table &#xD;&#xA;'temporary_table' in a String variable 'date_includes_september'." varName="date_includes_september" stringValue="${row[1]}" numberValue="0" booleanValue="false" useCurrentDate="false"/>
+                        <actions xsi:type="recorder:TextReplaceAction" active="true" actionDetails="(Sept. to September in 'date_includes_september' to 'date_includes_september')" delay="0" comment="The action replaces text 'Sept.' with text 'September' in variable &#xD;&#xA;'date_includes_september'" targetVariable="date_includes_september" sourceVariable="date_includes_september" find="Sept." replace="September"/>
+                        <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="The action will convert the value stored in string variable &#xD;&#xA;'date_includes_september' into a DateTime variable." targetVariable="press_release_date" direction="STRING_TO_TYPE" inputMask="MMMM d, yyyy" inputLocale="en-US" outputMask="MMM dd,yyy" outputLocale="en-US" input="${date_includes_september}"/>
+                      </catchBlock>
+                    </actions>
+                  </catchBlock>
+                </actions>
+                <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(press_release_date >= start_date)" delay="0" comment="The action compares the date stored in variable 'press_release_date' with the &#xD;&#xA;date in variable 'start_date'.&#xD;&#xA;&#xD;&#xA;If it greater or equals to it, the bot will perform actions(s) from the &quot;Then&quot; block." leftOperand="${press_release_date}" rightOperand="${start_date}" operator="GREATER_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+                  <ifBlock active="true">
+                    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'final_table')" delay="0" comment="The action adds a row from table variable 'temporary_table' to table variable &#xD;&#xA;'final_table'." varName="final_table">
+                      <bigDecimalExpressionHandler/>
+                      <listExpressionHandler operationType="PUSH"/>
+                      <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="row"/>
+                    </actions>
+                  </ifBlock>
+                  <elseBlock active="true"/>
+                </actions>
+              </actions>
+            </actions>
+          </catchBlock>
+        </actions>
+      </catchBlock>
+    </actions>
+  </actions>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Save data in Excel file" delay="0" groupName="Save data in Excel file">
+    <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;${file_path}&quot;)" delay="0" comment="This action opens Excel spreadsheet from the variable &quot;file_path&quot;." filePath="${file_path}" autoSaveFile="true">
+      <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('final_table' to A2:END)" delay="0" comment="This actions pastes variable values from &quot;final table&quot; to the excel spreadsheet." sourceVariable="final_table" coordinateFrom="A2"/>
+      <actions xsi:type="recorder:SetCellValueAction" varName="date_cell" active="true" actionDetails="(A1)" delay="0" comment="This action sets value for cell A1 from the variable &quot;date_cell&quot;." useCellCoordinates="true" cellCoordinates="A1"/>
+      <actions xsi:type="recorder:SetCellValueAction" varName="title_cell" active="true" actionDetails="(B1)" delay="0" comment="This action sets value for cell B1 from the variable &quot;title_cell&quot;." useCellCoordinates="true" cellCoordinates="B1"/>
+      <actions xsi:type="recorder:SetCellValueAction" varName="link_cell" active="true" actionDetails="(C1)" delay="0" comment="This action sets value for cell C1 from the variable &quot;link_cell&quot;." useCellCoordinates="true" cellCoordinates="C1"/>
+      <actions xsi:type="recorder:SetCellValueAction" varName="release_no_cell" active="true" actionDetails="(D1)" delay="0" comment="This action sets value for cell D1 from the variable &quot;release_no_cell&quot;." useCellCoordinates="true" cellCoordinates="D1"/>
+    </actions>
+  </actions>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Create a specific subject for Outlook email" delay="0" groupName="Create a specific subject for Outlook email">
+    <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="This action converts DateTime variable &quot;start_date&quot; to the String variable &#xD;&#xA;&quot;start_date_string&quot;." targetVariable="start_date_string" direction="TYPE_TO_STRING" inputMask="yy-MM-dd" inputLocale="en-US" outputMask="MMM dd, yyy" outputLocale="en-US" input="start_date"/>
+    <actions xsi:type="recorder:DateFormatAction" active="true" actionDetails="" delay="0" comment="This action converts DateTime variable &quot;current_date&quot; to the String variable &#xD;&#xA;&quot;current_date_string&quot;." targetVariable="current_date_string" direction="TYPE_TO_STRING" inputMask="yy-MM-dd" inputLocale="en-US" outputMask="MMM dd, yyy" outputLocale="en-US" input="current_date"/>
+    <actions xsi:type="recorder:TextJoinAction" active="true" actionDetails="('text_for_subject', 'start_date_string' to 'subject_start')" delay="0" comment="This action joins 2 String variables &quot;text_for_subject&quot; and &quot;start_date_string&quot; &#xD;&#xA;with space separator.&#xD;&#xA;" targetVariable="subject_start" separator=" ">
+      <sourceVariable>text_for_subject</sourceVariable>
+      <sourceVariable>start_date_string</sourceVariable>
+    </actions>
+    <actions xsi:type="recorder:TextJoinAction" active="true" actionDetails="('subject_start', 'current_date_string' to 'subject')" delay="0" comment="This action joins 2 String variables &quot;subject_start&quot; and &quot;current_date_string&quot;.&#xD;&#xA;" targetVariable="subject" separator=" - ">
+      <sourceVariable>subject_start</sourceVariable>
+      <sourceVariable>current_date_string</sourceVariable>
+    </actions>
+  </actions>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Send email with attachment via Outlook" delay="0" groupName="Send email with attachment via Outlook">
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Win+r)" delay="0" comment="This action opens &quot;Run&quot; window." modifiers="4" text="r" rawCode="82" keyCode="19" keyChar="114" keyLocation="1" type="HOT_KEY_PRESS"/>
+    <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Run)" delay="0" comment="With the help of the Window action, a bot switches to the specified window and&#xD;&#xA;ignores any random popups." clazz="" title="(?i).*\QRun\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" comment="This action types &quot;Outlook&quot; into the &quot;Run&quot; window" text="Outlook" type="KEY_TYPE"/>
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="0" comment="After this action Outlook will be opened" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+    </actions>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000" comment="This Wait action gives Outlook time to open"/>
+    <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="These exception handlings are made for Outlook 2007, 2010 and 2013 as some &#xD;&#xA;window titles and elements differ from Outlook 365.&#xD;&#xA;&#xD;&#xA;On this step the title of the window differs.">
+      <tryBlock active="true">
+        <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="( - Outlook)" delay="0" clazz="" title="(?i).*\Q - Outlook\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+          <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+Shift+M)" delay="0" comment="This hotkey combination opens a window with new email." modifiers="3" text="M" rawCode="77" keyCode="50" keyChar="77" keyLocation="1" type="HOT_KEY_PRESS"/>
+        </actions>
+      </tryBlock>
+      <catchBlock active="true">
+        <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Outlook)" delay="0" clazz="" title="(?i).*\QOutlook\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+          <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+Shift+M)" delay="0" modifiers="3" text="M" rawCode="77" keyCode="50" keyChar="77" keyLocation="1" type="HOT_KEY_PRESS"/>
+        </actions>
+      </catchBlock>
+    </actions>
+    <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Untitled - Message)" delay="0" clazz="" title="(?i).*\QUntitled - Message\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(from variable 'user_email')" delay="0" comment="This action enters user email from a variable &quot;user_email&quot; into the email." varName="user_email" type="TEXT_FROM_VAR"/>
+      <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="This exception is made, as the selector of the &quot;Subject&quot; field differs in different &#xD;&#xA;versions of Outlook.">
+        <tryBlock active="true">
+          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" comment="This action clicks on &quot;Subject&quot; field using Window control action. The element&#xD;&#xA;was captured by the Inspector." selector=".RichEdit20WPT[name=&quot;Subject&quot;]" type="CONTROL" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+        </tryBlock>
+        <catchBlock active="true">
+          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" selector=".RichEdit20WPT[name=&quot;Subject:&quot;]" type="CONTROL" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+        </catchBlock>
+      </actions>
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(from variable 'subject')" delay="0" comment="This action enter a String variable &quot;subject&quot; into the Subject field." varName="subject" type="TEXT_FROM_VAR"/>
+      <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="This exception is made, as the selector of the &quot;Attach file&quot; button differs &#xD;&#xA;in different versions of Outlook">
+        <tryBlock active="true">
+          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" selector=".NetUIAnchor[name=&quot;Attach File...&quot;]" type="CONTROL" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+        </tryBlock>
+        <catchBlock active="true">
+          <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="This exception is made for Outlook 2013">
+            <tryBlock active="true">
+              <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" selector=".Button[name=&quot;Attach File&quot;]" type="CONTROL" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+            </tryBlock>
+            <catchBlock active="true">
+              <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" selector=".NetUIRibbonButton[name=&quot;Attach File&quot;]" type="CONTROL" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+            </catchBlock>
+          </actions>
+        </catchBlock>
+      </actions>
+      <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="This exception is made, as the flow for attaching a file differs in different&#xD;&#xA;versions of Outlook">
+        <tryBlock active="true">
+          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" selector=".NetUITWBtnMenuItem" type="CONTROL" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+        </tryBlock>
+        <catchBlock active="true"/>
+      </actions>
+    </actions>
+    <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Insert File)" delay="0" clazz="" title="(?i).*\QInsert File\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(from variable 'file_path')" delay="0" comment="This action types text from a variable &quot;file_path&quot; in order to attach the file." varName="file_path" type="TEXT_FROM_VAR"/>
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="0" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+    </actions>
+    <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="This exception is made, as the selector of the &quot;Send&quot; button differs in different &#xD;&#xA;versions of Outlook">
+      <tryBlock active="true">
+        <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(${subject})" delay="0" clazz="" title="(?i).*\Q${subject}\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" selector=".Button[name=&quot;Send&quot;]" type="CONTROL" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+        </actions>
+      </tryBlock>
+      <catchBlock active="true">
+        <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Untitled - Message)" delay="0" clazz="" title="(?i).*\QUntitled - Message\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" selector=".Button[name=&quot;Send&quot;]" type="CONTROL" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+        </actions>
+      </catchBlock>
+    </actions>
+  </actions>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Close Outlook" delay="0" groupName="Close Outlook">
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 4000 ms" delay="4000" comment="This Wait action is added to make sure that email is sent before closing Outlook."/>
+    <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0" comment="This exception is made for different versions of Outlook (as the window title&#xD;&#xA;differs).">
+      <tryBlock active="true">
+        <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="( - Outlook)" delay="0" comment="" clazz="" title="(?i).*\Q - Outlook\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+          <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Alt+{F4})" delay="0" comment="This hotkey combination closes Outlook" modifiers="8" text="{F4}" rawCode="115" keyCode="62" keyLocation="1"/>
+        </actions>
+      </tryBlock>
+      <catchBlock active="true">
+        <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Outlook)" delay="0" clazz="" title="(?i).*\QOutlook\E.*" useRegexpTitle="true" timeoutMs="0" modeType="BY_TITLE">
+          <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Alt+{F4})" delay="0" modifiers="8" text="{F4}" rawCode="115" keyCode="62" keyLocation="1"/>
+        </actions>
+      </catchBlock>
+    </actions>
+  </actions>
+</recorder:ActionFlow>

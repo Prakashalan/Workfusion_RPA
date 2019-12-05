@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables/>
+  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Win+r)" delay="0" modifiers="4" text="r" rawCode="82" keyCode="19" keyChar="114" keyLocation="1" type="HOT_KEY_PRESS"/>
+  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="notepad" type="KEY_TYPE"/>
+  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="0" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="Hello world!!!!" type="KEY_TYPE"/>
+  <settings/>
+</recorder:ActionFlow>

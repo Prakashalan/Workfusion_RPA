@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="companynamelist" type="LIST" value="[]"/>
+    <variable name="stockpricelist" type="LIST" value="[]"/>
+    <variable name="tempprice" type="STRING" value=""/>
+    <variable name="colonsepratelist" type="STRING" value=""/>
+  </variables>
+  <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Praka...op\result.xlsx&quot;)" delay="0" filePath="C:\Users\PrakashPalani\Desktop\result.xlsx">
+    <actions xsi:type="recorder:GetColumnAction" varName="companynamelist" active="true" actionDetails="(First)" delay="0"/>
+  </actions>
+  <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(https://www.google.com)" delay="0" url="https://www.google.com" type="CHROME" waitTimeout="20000">
+    <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(company) in (companynamelist)" delay="0" varName="companynamelist" pointerName="company" filterExpression="">
+      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" offsetX="-28" imageName="1574068672368-anchor-1574068672551.apng" fullImageName="1574068672368.png" type="IMAGE" webElementLocator="" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'company')" delay="0" varName="company" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+        <stringToStringConversion targetType="STRING"/>
+        <delimitedListConversion targetType="LIST" trimValues="false"/>
+        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+      </actions>
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+v)" delay="0" modifiers="32" text="v" rawCode="86" keyCode="47" keyChar="118" keyLocation="1" type="HOT_KEY_PRESS"/>
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text=" stock price" type="KEY_TYPE"/>
+      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="0" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+      <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;knowledge-finance-wholepage__entity-summary&quot;]/div/g-card-section/div/g-card-section/span[1]/span/span[1] xpath)" delay="5000" varName="tempprice" webElementLocator="//*[@id=&quot;knowledge-finance-wholepage__entity-summary&quot;]/div/g-card-section/div/g-card-section/span[1]/span/span[1]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+      <actions xsi:type="recorder:TextJoinAction" active="true" actionDetails="('tempprice', 'colonsepratelist' to 'colonsepratelist')" delay="0" targetVariable="colonsepratelist" separator=";">
+        <sourceVariable>tempprice</sourceVariable>
+        <sourceVariable>colonsepratelist</sourceVariable>
+      </actions>
+    </actions>
+  </actions>
+  <actions xsi:type="recorder:TextSplitAction" active="true" actionDetails="('colonsepratelist', separator: Semicolon to 'stockpricelist')" delay="0" targetVariable="stockpricelist" sourceVariable="colonsepratelist" separator=";"/>
+  <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Praka...op\result.xlsx&quot;)" delay="0" filePath="C:\Users\PrakashPalani\Desktop\result.xlsx" autoSaveFile="true">
+    <actions xsi:type="recorder:ExcelSetActiveCellAction" active="true" actionDetails="(B1)" delay="0" useCellCoordinates="true" cellCoordinates="B1"/>
+    <actions xsi:type="recorder:ForeachAction" active="false" actionDetails="(element) in (stockpricelist)" delay="0" varName="stockpricelist" pointerName="element">
+      <actions xsi:type="recorder:SetCellValueAction" varName="element" active="false" actionDetails="(Current)" delay="0" cellPosition="CURRENT"/>
+      <actions xsi:type="recorder:ExcelSetActiveCellAction" active="false" actionDetails="(Cell below)" delay="0" cellPosition="CELL_BELOW"/>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="value3" type="STRING" value=""/>
+    <variable name="rs" type="NUMBER" value="0"/>
+    <variable name="rs1" type="NUMBER" value="0"/>
+    <variable name="value1" type="STRING" value=""/>
+    <variable name="st_value" type="STRING" value=""/>
+    <variable name="rs2" type="NUMBER" value="0"/>
+    <variable name="result" type="NUMBER" value="0"/>
+    <variable name="rs3" type="STRING" value=""/>
+    <variable name="value" type="STRING" value=""/>
+    <variable name="final_output" type="STRING" value=""/>
+  </variables>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+    <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" comment="" script="@CustomScriptAction(&#xD;&#xA;output = 'value'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#x9;def filename = &quot;C:/Users/PrakashPalani/Downloads/Statement_Of_Account_  TN3004TW31215 .txt&quot;&#xD;&#xA;&#x9;def filecontent = RString.of(&quot;&quot;)&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;new File(filename).eachLine{&#xD;&#xA;&#x9;line -> filecontent +=line &#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;}&#x9;&#xD;&#xA;&#x9;def value = filecontent.split('No. of Instalments : ')[2].split(' ')[1]&#xD;&#xA;}&#xD;&#xA;"/>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'value')" delay="0" comment="" varName="value" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+      <stringToStringConversion targetType="STRING"/>
+      <delimitedListConversion targetType="LIST" valueDelimiter="\t" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(to 'rs')" delay="0" varName="rs" activeConversion="SIMPLE_NUMBER">
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" comment="" script="@CustomScriptAction(&#xD;&#xA;output = 'value1'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#x9;def filename1 = &quot;C:/Users/PrakashPalani/Downloads/Statement_Of_Account_  TN3004TW31215 .txt&quot;&#xD;&#xA;&#x9;def filecontent1 = RString.of(&quot;&quot;)&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;new File(filename1).eachLine{&#xD;&#xA;&#x9;line -> filecontent1 +=line &#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;}&#x9;&#xD;&#xA;&#x9;def value1 = filecontent1.split('Adv EMI : ')[2].split(' ')[1]&#xD;&#xA;&#x9;}&#xD;&#xA;"/>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'value1')" delay="0" comment="" varName="value1" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+      <stringToStringConversion targetType="STRING"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(to 'rs1')" delay="0" comment="" varName="rs1" activeConversion="SIMPLE_NUMBER" type="TO_VARIABLE">
+      <stringToStringConversion targetType="STRING"/>
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;    input = ['rs','rs1'],&#xD;&#xA;    output = 'st_value'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;def st_value = rs-rs1&#xD;&#xA;}"/>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'st_value')" delay="0" varName="st_value" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+      <stringToStringConversion targetType="STRING"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(to 'rs2')" delay="0" comment="" varName="rs2" activeConversion="SIMPLE_NUMBER">
+      <stringToStringConversion targetType="STRING"/>
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'rs2')" delay="0" comment="" varName="rs2">
+      <bigDecimalExpressionHandler expression="${rs2}/2"/>
+      <listExpressionHandler operationType="PUSH"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'rs2')" delay="0" comment="" varName="rs2" activeConversion="SIMPLE_NUMBER" type="FROM_VARIABLE">
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(to 'rs2')" delay="0" comment="9" varName="rs2" activeConversion="SIMPLE_NUMBER">
+      <stringToStringConversion targetType="STRING"/>
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" comment="" script="import java.util.regex.Pattern&#xD;&#xA;import java.util.regex.Matcher&#xD;&#xA;@CustomScriptAction(&#xD;&#xA;output = 'value3'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#x9;def filename1 = &quot;C:/Users/PrakashPalani/Downloads/Statement_Of_Account_  TN3004TW31215 .txt&quot;&#xD;&#xA;&#x9;def filecontent1 = RString.of(&quot;&quot;)&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;new File(filename1).eachLine{&#xD;&#xA;&#x9;line -> filecontent1 +=line + &quot;\n&quot; &#xD;&#xA;&#x9;}&#x9;&#xD;&#xA;&#x9;def value = filecontent1.split('REAL STATUS')[2]&#xD;&#xA;&#x9;def value1 = value.split('Future Dues')[1]&#xD;&#xA;   def matcher = value1 =~ /.*[0-9]{2}\/[0-9]{2}\/[0-9]{4}.*[0-9]{2}\/([0-9]{2}\/[0-9]{4})/&#xD;&#xA; &#x9;def value3 = RNumber.of(matcher.size())&#xD;&#xA;}    &#xD;&#xA;    &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9; &#xD;&#xA;&#x9;&#xD;&#xA;"/>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'value3')" delay="0" comment="" varName="value3" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+      <stringToStringConversion targetType="STRING"/>
+      <simpleNumberConversion targetType="NUMBER"/>
+      <booleanConversion targetType="BOOLEAN"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(to 'result')" delay="0" comment="3" varName="result" activeConversion="SIMPLE_NUMBER">
+      <stringToStringConversion targetType="STRING"/>
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;&#x9;input = ['rs2','result'],&#xD;&#xA;&#x9;output = 'final_output'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;if (rs2 &lt;= result){&#xD;&#xA;&#x9;&#x9;&#x9;def final_output = RString.of(&quot;true&quot;)&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;else{&#xD;&#xA;&#x9;&#x9;&#x9;def final_output = RString.of(&quot;false&quot;)&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;}"/>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'final_output')" delay="0" varName="final_output" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+      <stringToStringConversion targetType="STRING"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(to 'final_output')" delay="0" comment="" varName="final_output" activeConversion="STRING_TO_STRING" type="TO_VARIABLE">
+      <stringToStringConversion targetType="STRING"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables/>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Win+r)" delay="0" modifiers="4" text="r" rawCode="82" keyCode="19" keyChar="114" keyLocation="1" type="HOT_KEY_PRESS"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="mstsc" type="KEY_TYPE"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="0" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({DELETE})" delay="0" text="{DELETE}" rawCode="46" keyCode="3667" keyLocation="4"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="192.168.1.8" type="KEY_TYPE"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566805091818-anchor-1566805091818.apng" fullImageName="1566805091818.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 10000 ms" delay="10000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566805124959-anchor-1566805124975.apng" fullImageName="1566805124959.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="prakash" type="KEY_TYPE"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566805243399-anchor-1566805243415.apng" fullImageName="1566805243399.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566805270647-anchor-1566805270653.apng" fullImageName="1566805270647.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 15000 ms" delay="15000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(double-click left button)" delay="0" imageName="1566808385750-anchor-1566808385856.apng" fullImageName="1566808385750.png" type="IMAGE" anchorOffsetY="36" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1" clickType="DOUBLE_CLICK"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566808429251-anchor-1566808429262.apng" fullImageName="1566808429251.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Win+r)" delay="0" modifiers="4" text="r" rawCode="82" keyCode="19" keyChar="114" keyLocation="1" type="HOT_KEY_PRESS"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="notepad" type="KEY_TYPE"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="0" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="Hello world!!!!!!!" type="KEY_TYPE"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+s)" delay="0" modifiers="2" text="s" rawCode="83" keyCode="31" keyChar="115" keyLocation="1" type="HOT_KEY_PRESS"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="remote_bot" type="KEY_TYPE"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566808903464-anchor-1566808903495.apng" fullImageName="1566808903464.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566809018107-anchor-1566809018107.apng" fullImageName="1566809018107.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566809326699-anchor-1566809326699.apng" fullImageName="1566809326699.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566809586796-anchor-1566809586796.apng" fullImageName="1566809586796.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click right button)" delay="0" imageName="1566809398646-anchor-1566809398646.apng" fullImageName="1566809398646.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="2"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566810010143-anchor-1566810010143.apng" fullImageName="1566810010143.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(double-click left button)" delay="0" imageName="1566975415539-anchor-1566975415554.apng" fullImageName="1566975415539.png" type="IMAGE" anchorOffsetY="17" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1" clickType="DOUBLE_CLICK"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+    <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+v)" delay="0" modifiers="2" text="v" rawCode="86" keyCode="47" keyChar="118" keyLocation="1" type="HOT_KEY_PRESS"/>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

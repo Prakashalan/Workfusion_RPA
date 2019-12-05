@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="captcha" type="STRING" value=""/>
+  </variables>
+  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(double-click left button)" delay="0" imageName="1572419811224-anchor-1572419811260.apng" fullImageName="1572419811224.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1" clickType="DOUBLE_CLICK"/>
+  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 10000 ms" delay="10000"/>
+  <actions xsi:type="recorder:OcrAction" active="true" actionDetails="(to 'captcha' rectangle 272 x 133)" delay="0" offsetX="5" offsetY="1" imageName="1572420691607-anchor-1572420691637.apng" fullImageName="1572420691607.png" type="CONTROL" anchorOffsetX="5" anchorOffsetY="8" varName="captcha" width="272" height="133" language="English"/>
+  <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'captcha')" delay="0" varName="captcha" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+    <stringToStringConversion targetType="STRING"/>
+    <delimitedListConversion targetType="LIST" trimValues="false"/>
+    <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

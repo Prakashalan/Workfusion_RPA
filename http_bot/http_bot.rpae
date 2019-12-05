@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="name" type="STRING" value="prakash.palani@rap.ventures"/>
+    <variable name="src" type="LIST" value="[]"/>
+    <variable name="rs" type="TABLE" value="[]"/>
+    <variable name="pass" type="STRING" value="rap@12345"/>
+    <variable name="text" type="STRING" value="hasattachments:"/>
+    <variable name="listofdiv" type="LIST" value="['cGRm']"/>
+    <variable name="pdf_div" type="LIST" value="[]"/>
+    <variable name="pdf_result" type="STRING" value=""/>
+    <variable name="loop" type="NUMBER" value="0"/>
+    <variable name="element" type="NUMBER" value="1"/>
+    <variable name="y" type="NUMBER" value="120"/>
+    <variable name="x_coord" type="STRING" value=""/>
+    <variable name="y_coord" type="STRING" value=""/>
+    <variable name="x_string" type="STRING" value=""/>
+    <variable name="y_string" type="STRING" value=""/>
+  </variables>
+  <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=13&amp;ct=1567160138&amp;rver=7.0.6737.0&amp;wp=MBI_SSL&amp;wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3dd52a1cb1-6564-6e60-ea76-354cd244a9a3&amp;id=292841&amp;aadredir=1&amp;CBCXT=out&amp;lw=1&amp;fl=dob%2cflname%2cwld&amp;cobrandid=90015%3D)" delay="0" url="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=13&amp;ct=1567160138&amp;rver=7.0.6737.0&amp;wp=MBI_SSL&amp;wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3dd52a1cb1-6564-6e60-ea76-354cd244a9a3&amp;id=292841&amp;aadredir=1&amp;CBCXT=out&amp;lw=1&amp;fl=dob%2cflname%2cwld&amp;cobrandid=90015%3D" type="CHROME" waitTimeout="20000">
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567162339108-anchor-1567162339143.apng" fullImageName="1567162339108.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;i0116&quot;] xpath)" delay="0" varName="name" webElementLocator="//*[@id=&quot;i0116&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566992388929-anchor-1566992388941.apng" fullImageName="1566992388929.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 6000 ms" delay="6000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" offsetX="-23" offsetY="4" imageName="1566992452743-anchor-1566992452755.apng" fullImageName="1566992452743.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;i0118&quot;] xpath)" delay="0" varName="pass" webElementLocator="//*[@id=&quot;i0118&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566992563548-anchor-1566992563562.apng" fullImageName="1566992563548.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1566992958718-anchor-1566992958733.apng" fullImageName="1566992958718.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+    <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+    <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(format) in (listofdiv)" delay="0" varName="listofdiv" pointerName="format">
+      <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(format = &quot;jpg&quot;)" delay="0" leftOperand="${format}" rightOperand="jpg" leftOperandType="VARIABLE" rightOperandType="STRING">
+        <ifBlock active="true">
+          <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+            <tryBlock active="true">
+              <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567511810650-anchor-1567511810662.apng" fullImageName="1567511810650.png" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;searchBoxId&quot;]/div[2]/div/input" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+              <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+              <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567511956946-anchor-1567511956964-copy.apng" fullImageName="1567511956946.png" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;filtersButtonId&quot;]/i" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+              <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+              <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567512180256-anchor-1567512180269-copy.apng" fullImageName="1567512180256.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+              <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+              <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="hasattachments:${format}" type="KEY_TYPE"/>
+              <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+              <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567513069039-anchor-1567513069048-copy.apng" fullImageName="1567513069039.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+              <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+              <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;ms-Image _2TzXYHnmSmlhLChkC_Y_iH root-144&quot;]/img xpath)" delay="0" varName="src" webElementLocator="//div[@class=&quot;ms-Image _2TzXYHnmSmlhLChkC_Y_iH root-144&quot;]/img" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="src"/>
+              <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'rs')" delay="0" varName="rs">
+                <bigDecimalExpressionHandler/>
+                <listExpressionHandler operationType="PUSH"/>
+                <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="src"/>
+              </actions>
+              <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+              <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Admin...esktop\rs.xlsx&quot;)" delay="0" filePath="C:\Users\Administrator\Desktop\rs.xlsx" autoSaveFile="true">
+                <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('rs' to A1:END)" delay="0" sourceVariable="rs" coordinateFrom="A1"/>
+              </actions>
+              <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 20000 ms" delay="20000"/>
+              <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" offsetX="-4" offsetY="1" imageName="1567077906871-anchor-1567077906895.apng" fullImageName="1567077906871.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+              <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567098739062-anchor-1567098739074.apng" fullImageName="1567098739062.png" type="IMAGE" anchorOffsetY="25" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+              <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Admin...esktop\rs.xlsx&quot;)" delay="0" filePath="C:\Users\Administrator\Desktop\rs.xlsx" autoSaveFile="true">
+                <actions xsi:type="recorder:GetColumnAction" varName="src" active="true" actionDetails="(First)" delay="0"/>
+                <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 4000 ms" delay="4000"/>
+                <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(imagelink) in (src)" delay="0" varName="src" pointerName="imagelink">
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567079802258-anchor-1567079802272.apng" fullImageName="1567079802258.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567098786839-anchor-1567098786851.apng" fullImageName="1567098786839.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'imagelink')" delay="0" varName="imagelink" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+                    <stringToStringConversion targetType="STRING"/>
+                    <simpleNumberConversion targetType="NUMBER"/>
+                    <delimitedListConversion targetType="LIST" trimValues="false"/>
+                    <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                  </actions>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+v)" delay="0" modifiers="2" text="v" rawCode="86" keyCode="47" keyChar="118" keyLocation="1" type="HOT_KEY_PRESS"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="0" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+                </actions>
+              </actions>
+            </tryBlock>
+            <catchBlock active="true">
+              <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+                <tryBlock active="true">
+                  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+Shift+{TAB})" delay="0" modifiers="3" text="{TAB}" rawCode="9" keyCode="15" keyChar="9" keyLocation="1"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;searchBoxId&quot;]/div[1]/div/input" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({DELETE})" delay="0" text="{DELETE}" rawCode="46" keyCode="3667" keyLocation="4"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567511956946-anchor-1567511956964-copy2.apng" fullImageName="1567511956946.png" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;filtersButtonId&quot;]/i" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567512180256-anchor-1567512180269-copy3.apng" fullImageName="1567512180256.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="hasattachments:${format}" type="KEY_TYPE"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567513069039-anchor-1567513069048-copy3.apng" fullImageName="1567513069039.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;ms-Image _2TzXYHnmSmlhLChkC_Y_iH root-144&quot;]/img xpath)" delay="0" varName="src" webElementLocator="//div[@class=&quot;ms-Image _2TzXYHnmSmlhLChkC_Y_iH root-144&quot;]/img" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="src"/>
+                  <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'rs')" delay="0" varName="rs">
+                    <bigDecimalExpressionHandler/>
+                    <listExpressionHandler operationType="PUSH"/>
+                    <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="src"/>
+                  </actions>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Admin...esktop\rs.xlsx&quot;)" delay="0" filePath="C:\Users\Administrator\Desktop\rs.xlsx" autoSaveFile="true">
+                    <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('rs' to A1:END)" delay="0" sourceVariable="rs" coordinateFrom="A1"/>
+                  </actions>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" offsetX="-4" offsetY="1" imageName="1567077906871-anchor-1567077906895-copy1.apng" fullImageName="1567077906871.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567098739062-anchor-1567098739074-copy.apng" fullImageName="1567098739062.png" type="IMAGE" anchorOffsetY="25" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Admin...esktop\rs.xlsx&quot;)" delay="0" filePath="C:\Users\Administrator\Desktop\rs.xlsx" autoSaveFile="true">
+                    <actions xsi:type="recorder:GetColumnAction" varName="src" active="true" actionDetails="(First)" delay="0"/>
+                    <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(imagelink) in (src)" delay="0" varName="src" pointerName="imagelink">
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567079802258-anchor-1567079802272-copy.apng" fullImageName="1567079802258.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567098786839-anchor-1567098786851-copy.apng" fullImageName="1567098786839.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'imagelink')" delay="0" varName="imagelink" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+                        <stringToStringConversion targetType="STRING"/>
+                        <simpleNumberConversion targetType="NUMBER"/>
+                        <delimitedListConversion targetType="LIST" valueDelimiter="" trimValues="false"/>
+                        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                      </actions>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+v)" delay="0" modifiers="2" text="v" rawCode="86" keyCode="47" keyChar="118" keyLocation="1" type="HOT_KEY_PRESS"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="0" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+                    </actions>
+                  </actions>
+                </tryBlock>
+                <catchBlock active="true">
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;searchBoxId&quot;]/div[1]/div/input" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({DELETE})" delay="0" text="{DELETE}" rawCode="46" keyCode="3667" keyLocation="4"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567511956946-anchor-1567511956964-copy4.apng" fullImageName="1567511956946.png" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;filtersButtonId&quot;]/i" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567512180256-anchor-1567512180269-copy5.apng" fullImageName="1567512180256.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="hasattachments:${format}" type="KEY_TYPE"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567513069039-anchor-1567513069048-copy5.apng" fullImageName="1567513069039.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;ms-Image _2TzXYHnmSmlhLChkC_Y_iH root-144&quot;]/img xpath)" delay="0" varName="src" webElementLocator="//div[@class=&quot;ms-Image _2TzXYHnmSmlhLChkC_Y_iH root-144&quot;]/img" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="src"/>
+                  <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'rs')" delay="0" varName="rs">
+                    <bigDecimalExpressionHandler/>
+                    <listExpressionHandler operationType="PUSH"/>
+                    <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="src"/>
+                  </actions>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Admin...esktop\rs.xlsx&quot;)" delay="0" filePath="C:\Users\Administrator\Desktop\rs.xlsx" autoSaveFile="true">
+                    <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('rs' to A1:END)" delay="0" sourceVariable="rs" coordinateFrom="A1"/>
+                  </actions>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" offsetX="-4" offsetY="1" imageName="1567077906871-anchor-1567077906895-copy2.apng" fullImageName="1567077906871.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567098739062-anchor-1567098739074-copy1.apng" fullImageName="1567098739062.png" type="IMAGE" anchorOffsetY="25" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Admin...esktop\rs.xlsx&quot;)" delay="0" filePath="C:\Users\Administrator\Desktop\rs.xlsx" autoSaveFile="true">
+                    <actions xsi:type="recorder:GetColumnAction" varName="src" active="true" actionDetails="(First)" delay="0"/>
+                    <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(imagelink) in (src)" delay="0" varName="src" pointerName="imagelink">
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567079802258-anchor-1567079802272-copy1.apng" fullImageName="1567079802258.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567098786839-anchor-1567098786851-copy1.apng" fullImageName="1567098786839.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'imagelink')" delay="0" varName="imagelink" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+                        <stringToStringConversion targetType="STRING"/>
+                        <simpleNumberConversion targetType="NUMBER"/>
+                        <delimitedListConversion targetType="LIST" valueDelimiter="" trimValues="false"/>
+                        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                      </actions>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+v)" delay="0" modifiers="2" text="v" rawCode="86" keyCode="47" keyChar="118" keyLocation="1" type="HOT_KEY_PRESS"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({ENTER})" delay="0" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+                    </actions>
+                  </actions>
+                </catchBlock>
+              </actions>
+            </catchBlock>
+          </actions>
+        </ifBlock>
+        <elseBlock active="true">
+          <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(format = &quot;pdf&quot;)" delay="0" leftOperand="${format}" rightOperand="pdf" leftOperandType="VARIABLE" rightOperandType="STRING">
+            <ifBlock active="true">
+              <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+                <tryBlock active="true">
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567511810650-anchor-1567511810662-copy.apng" fullImageName="1567511810650.png" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;searchBoxId&quot;]/div[2]/div/input" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567511956946-anchor-1567511956964-copy1.apng" fullImageName="1567511956946.png" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;filtersButtonId&quot;]/i" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567512180256-anchor-1567512180269-copy2.apng" fullImageName="1567512180256.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="hasattachments:${format}" type="KEY_TYPE"/>
+                  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567513069039-anchor-1567513069048-copy2.apng" fullImageName="1567513069039.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                  <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_1hHMVrN7VV4d6Ylz-FsMuP _18LAllQi61d4a4XNAr9prg&quot;] xpath)" delay="0" varName="pdf_div" webElementLocator="//div[@class=&quot;_1hHMVrN7VV4d6Ylz-FsMuP _18LAllQi61d4a4XNAr9prg&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                  <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'pdf_div')" delay="0" comment="&#xD;&#xA;" varName="pdf_div" activeConversion="DELIMITED_LIST" type="FROM_VARIABLE">
+                    <delimitedListConversion targetType="LIST" valueDelimiter="\r\n" trimValues="false"/>
+                    <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                  </actions>
+                  <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'pdf_div')" delay="0" comment="" varName="pdf_div">
+                    <bigDecimalExpressionHandler/>
+                    <listExpressionHandler operationType="GET_SIZE" targetVarName="loop"/>
+                    <tableExpressionHandler operationType="GET_SIZE" tablePushType="AS_COLUMN" targetVarName="pdf_div"/>
+                  </actions>
+                  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+                    <actions xsi:type="recorder:WhileAction" active="true" actionDetails="(element &lt;= loop)" delay="0" comment="" leftOperand="${element}" rightOperand="${loop}" operator="LESS_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button, position: 340, 380)" delay="0" x="340" y="380" type="COORDINATES" webElementLocator="//div[@class=&quot;_1hHMVrN7VV4d6Ylz-FsMuP _18LAllQi61d4a4XNAr9prg&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(double-click left button, position: 1000, 380)" delay="0" x="1000" y="380" type="COORDINATES" webElementLocator="//*[@id=&quot;app&quot;]/div/div[2]/div/div/div[3]/div[2]/div/div[3]/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div/div/div" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1" clickType="DOUBLE_CLICK"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567531882977-anchor-1567531883009.apng" fullImageName="1567531882977.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567531895431-anchor-1567531895457.apng" fullImageName="1567531895431.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'element')" delay="0" varName="element">
+                        <bigDecimalExpressionHandler expression=" ${element} +1"/>
+                        <listExpressionHandler operationType="PUSH"/>
+                        <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+                      </actions>
+                      <actions xsi:type="recorder:CustomScriptAction" active="false" actionDetails="" delay="0" script="import java.awt.*&#xD;&#xA;&#xD;&#xA;@CustomScriptAction(&#xD;&#xA;output = 'x_coord'&#xD;&#xA;)&#xD;&#xA; &#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;x_coord = RNumber.of(MouseInfo.getPointerInfo().getLocation().x)&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
+                      <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="import java.awt.*&#xD;&#xA;&#xD;&#xA;@CustomScriptAction(&#xD;&#xA;output = 'y_coord'&#xD;&#xA;)&#xD;&#xA; &#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;y_coord = RNumber.of(MouseInfo.getPointerInfo().getLocation().y)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;"/>
+                      <actions xsi:type="recorder:NumberFormatAction" active="false" actionDetails="" delay="0" targetVariable="x_coord" direction="TYPE_TO_STRING" inputLocale="en" outputMask="y+120" outputLocale="en" input="loop"/>
+                      <actions xsi:type="recorder:NumberFormatAction" active="true" actionDetails="" delay="0" targetVariable="y_string" direction="TYPE_TO_STRING" inputLocale="en" outputMask="y+120" outputLocale="en" input="loop"/>
+                      <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;input = ['y_string']&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;mouse().click(Integer.valueOf(y_string.toString()))&#xD;&#xA;&#xD;&#xA;}"/>
+                    </actions>
+                  </actions>
+                </tryBlock>
+                <catchBlock active="true">
+                  <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+                    <tryBlock active="true">
+                      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(Ctrl+Shift+{TAB})" delay="0" modifiers="3" text="{TAB}" rawCode="9" keyCode="15" keyChar="9" keyLocation="1"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;searchBoxId&quot;]/div[1]/div/input" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({DELETE})" delay="0" text="{DELETE}" rawCode="46" keyCode="3667" keyLocation="4"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567511956946-anchor-1567511956964-copy3.apng" fullImageName="1567511956946.png" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;filtersButtonId&quot;]/i" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567512180256-anchor-1567512180269-copy4.apng" fullImageName="1567512180256.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="hasattachments:${format}" type="KEY_TYPE"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567513069039-anchor-1567513069048-copy4.apng" fullImageName="1567513069039.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_1hHMVrN7VV4d6Ylz-FsMuP _18LAllQi61d4a4XNAr9prg&quot;] xpath)" delay="0" varName="pdf_div" webElementLocator="//div[@class=&quot;_1hHMVrN7VV4d6Ylz-FsMuP _18LAllQi61d4a4XNAr9prg&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'pdf_div')" delay="0" comment="SV&#xA;Sathyanarayanan Vaithianathan&#xA;(No subject)&#xA;Tue 16:23&#xA;Check this pdf&#xA;Inbox&#xA;diplomacourses.pdf&#xD;&#xA;PP&#xA;Prakash Palani&#xA;&#xA;(No subject)&#xA;Tue 14:23&#xA;No preview is available.&#xA;Sent Items&#xA;sample.pdf" varName="pdf_div" activeConversion="DELIMITED_LIST" type="FROM_VARIABLE">
+                        <delimitedListConversion targetType="LIST" valueDelimiter="\r\n" trimValues="false"/>
+                        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                      </actions>
+                      <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'pdf_div')" delay="0" varName="pdf_div">
+                        <bigDecimalExpressionHandler/>
+                        <listExpressionHandler operationType="GET_SIZE" targetVarName="loop"/>
+                        <tableExpressionHandler operationType="GET_SIZE" tablePushType="AS_COLUMN" targetVarName="pdf_div"/>
+                      </actions>
+                      <actions xsi:type="recorder:CustomScriptAction" active="false" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;&#x9;&#x9;input = [&quot;pdf_div&quot;],&#xD;&#xA;&#x9;&#x9;output = 'pdf_result'&#xD;&#xA;&#xD;&#xA;)&#xD;&#xA;def customScript()  {&#xD;&#xA;&#xD;&#xA;       def pdf_result = int(pdf_div)&#xD;&#xA;       &#xD;&#xA;        &#xD;&#xA;       &#xD;&#xA;&#x9;&#x9;&#xD;&#xA;}"/>
+                      <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+                        <actions xsi:type="recorder:WhileAction" active="true" actionDetails="(element &lt;= loop)" delay="0" comment="" leftOperand="${element}" rightOperand="${loop}" operator="LESS_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+                          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button, position: 340, 370)" delay="0" x="340" y="370" type="COORDINATES" webElementLocator="//div[@class=&quot;_1hHMVrN7VV4d6Ylz-FsMuP _18LAllQi61d4a4XNAr9prg&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(double-click left button, position: 1000, 380)" delay="0" x="1000" y="380" type="COORDINATES" webElementLocator="//*[@id=&quot;app&quot;]/div/div[2]/div/div/div[3]/div[2]/div/div[3]/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div/div/div" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1" clickType="DOUBLE_CLICK"/>
+                          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567531882977-anchor-1567531883009-copy.apng" fullImageName="1567531882977.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567531895431-anchor-1567531895457-copy.apng" fullImageName="1567531895431.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                          <actions xsi:type="recorder:ExpressionValueAction" active="false" actionDetails="(to 'y')" delay="0" varName="y">
+                            <bigDecimalExpressionHandler expression="${y}+120"/>
+                            <listExpressionHandler operationType="PUSH"/>
+                            <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+                          </actions>
+                          <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'element')" delay="0" varName="element">
+                            <bigDecimalExpressionHandler expression=" ${element} +1"/>
+                            <listExpressionHandler operationType="PUSH"/>
+                            <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+                          </actions>
+                        </actions>
+                      </actions>
+                    </tryBlock>
+                    <catchBlock active="true">
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;searchBoxId&quot;]/div[1]/div/input" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="({DELETE})" delay="0" text="{DELETE}" rawCode="46" keyCode="3667" keyLocation="4"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567511956946-anchor-1567511956964.apng" fullImageName="1567511956946.png" type="WEB_ELEMENT" webElementLocator="//*[@id=&quot;filtersButtonId&quot;]/i" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567512180256-anchor-1567512180269-copy1.apng" fullImageName="1567512180256.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(typed text)" delay="0" text="hasattachments:${format}" type="KEY_TYPE"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567513069039-anchor-1567513069048-copy1.apng" fullImageName="1567513069039.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+                      <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;_1hHMVrN7VV4d6Ylz-FsMuP _18LAllQi61d4a4XNAr9prg&quot;] xpath)" delay="0" varName="pdf_div" webElementLocator="//div[@class=&quot;_1hHMVrN7VV4d6Ylz-FsMuP _18LAllQi61d4a4XNAr9prg&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'pdf_div')" delay="0" comment="SV&#xA;Sathyanarayanan Vaithianathan&#xA;(No subject)&#xA;Tue 16:23&#xA;Check this pdf&#xA;Inbox&#xA;diplomacourses.pdf&#xD;&#xA;PP&#xA;Prakash Palani&#xA;&#xA;(No subject)&#xA;Tue 14:23&#xA;No preview is available.&#xA;Sent Items&#xA;sample.pdf" varName="pdf_div" activeConversion="DELIMITED_LIST" type="FROM_VARIABLE">
+                        <delimitedListConversion targetType="LIST" valueDelimiter="\r\n" trimValues="false"/>
+                        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                      </actions>
+                      <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'pdf_div')" delay="0" varName="pdf_div">
+                        <bigDecimalExpressionHandler/>
+                        <listExpressionHandler operationType="GET_SIZE" targetVarName="loop"/>
+                        <tableExpressionHandler operationType="GET_SIZE" tablePushType="AS_COLUMN" targetVarName="pdf_div"/>
+                      </actions>
+                      <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+                        <actions xsi:type="recorder:WhileAction" active="true" actionDetails="(element &lt;= loop)" delay="0" comment="" leftOperand="${element}" rightOperand="${loop}" operator="LESS_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+                          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button, position: 340, 250)" delay="0" x="340" y="250" type="COORDINATES" webElementLocator="//div[@class=&quot;_1hHMVrN7VV4d6Ylz-FsMuP _18LAllQi61d4a4XNAr9prg&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(double-click left button, position: 1000, 260)" delay="0" x="1000" y="260" type="COORDINATES" webElementLocator="//*[@id=&quot;app&quot;]/div/div[2]/div/div/div[3]/div[2]/div/div[3]/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div/div/div" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1" clickType="DOUBLE_CLICK"/>
+                          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567531882977-anchor-1567531883009-copy1.apng" fullImageName="1567531882977.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1567531895431-anchor-1567531895457-copy1.apng" fullImageName="1567531895431.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+                          <actions xsi:type="recorder:ExpressionValueAction" active="false" actionDetails="(to 'y')" delay="0" varName="y">
+                            <bigDecimalExpressionHandler expression="${y}+120"/>
+                            <listExpressionHandler operationType="PUSH"/>
+                            <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+                          </actions>
+                          <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'element')" delay="0" varName="element">
+                            <bigDecimalExpressionHandler expression=" ${element} +1"/>
+                            <listExpressionHandler operationType="PUSH"/>
+                            <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+                          </actions>
+                          <actions xsi:type="recorder:CustomScriptAction" active="false" actionDetails="" delay="0" script="import java.awt.*&#xD;&#xA;&#xD;&#xA;@CustomScriptAction(&#xD;&#xA;output = 'x_coord'&#xD;&#xA;)&#xD;&#xA; &#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;x_coord = RNumber.of(MouseInfo.getPointerInfo().getLocation().x)&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
+                          <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="import java.awt.*&#xD;&#xA;&#xD;&#xA;@CustomScriptAction(&#xD;&#xA;output = 'y_coord'&#xD;&#xA;)&#xD;&#xA; &#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;y_coord = RNumber.of(MouseInfo.getPointerInfo().getLocation().y)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;"/>
+                          <actions xsi:type="recorder:NumberFormatAction" active="false" actionDetails="" delay="0" targetVariable="" direction="TYPE_TO_STRING" inputLocale="en" outputLocale="en"/>
+                          <actions xsi:type="recorder:NumberFormatAction" active="true" actionDetails="" delay="0" targetVariable="y_string" direction="TYPE_TO_STRING" inputLocale="en" outputMask="y+120" outputLocale="en"/>
+                          <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;input = ['y_string']&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;mouse().click(Integer.valueOf(y_string.toString()))&#xD;&#xA;&#xD;&#xA;}"/>
+                        </actions>
+                      </actions>
+                    </catchBlock>
+                  </actions>
+                </catchBlock>
+              </actions>
+            </ifBlock>
+            <elseBlock active="true"/>
+          </actions>
+        </elseBlock>
+      </actions>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

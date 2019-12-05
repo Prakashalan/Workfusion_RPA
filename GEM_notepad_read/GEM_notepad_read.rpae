@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="read_list" type="LIST" value="[]"/>
+    <variable name="read_table" type="TABLE" value="[]"/>
+    <variable name="assign" type="NUMBER" value="1"/>
+    <variable name="read_string" type="STRING" value=""/>
+    <variable name="list" type="NUMBER" value="200"/>
+    <variable name="read2" type="LIST" value="[]"/>
+  </variables>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+    <actions xsi:type="recorder:FileListFolderAction" active="true" actionDetails="('C:\Users\PrakashPalani\Desk...' to ${read_list})" delay="0" targetVariable="read_list" path="C:\Users\PrakashPalani\Desktop\Quote" type="FILES" includeSubFolders="false" filterBySize="false" filterByDates="false" dateFilterType="FIXED" from="2017-10-31 06:29:39" to="2022-10-31 06:36:31" dateFormat="yyyy-MM-dd HH:mm:ss" amount="true" unit="DAYS" filterByPattern="false" pattern=""/>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'read_list')" delay="0" comment="" varName="read_list">
+      <bigDecimalExpressionHandler/>
+      <listExpressionHandler operationType="GET_SIZE" targetVarName="list"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'list')" delay="0" comment="" varName="list" activeConversion="SIMPLE_NUMBER" type="FROM_VARIABLE">
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(element) in (read_list)" delay="0" varName="read_list" pointerName="element">
+      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'element')" delay="0" comment="" varName="element" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+        <stringToStringConversion targetType="STRING"/>
+        <simpleNumberConversion targetType="NUMBER"/>
+        <delimitedListConversion targetType="LIST" trimValues="false"/>
+        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+      </actions>
+      <actions xsi:type="recorder:FileReadAction" active="true" actionDetails="('${element}' to ${read_string})" delay="0" comment="&#xD;&#xA;" targetVariable="read_string" path="${element}" encoding="UTF-8" separator="&#xD;&#xA;"/>
+      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'read_string')" delay="0" varName="read_string" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+        <stringToStringConversion targetType="STRING"/>
+        <delimitedListConversion targetType="LIST" trimValues="false"/>
+        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+      </actions>
+      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(to 'read2')" delay="0" varName="read2" activeConversion="DELIMITED_LIST">
+        <delimitedListConversion targetType="LIST" trimValues="false"/>
+        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+      </actions>
+      <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'read_table')" delay="0" varName="read_table">
+        <bigDecimalExpressionHandler/>
+        <listExpressionHandler operationType="PUSH"/>
+        <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW" targetVarName="read2"/>
+      </actions>
+      <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Praka...r_details.xlsx&quot;)" delay="0" comment="" filePath="C:\Users\PrakashPalani\Desktop\sender_details.xlsx">
+        <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('read_table' to A1:A200)" delay="0" sourceVariable="read_table" coordinateFrom="A1" coordinateTo="A200"/>
+        <actions xsi:type="recorder:SaveSpreadsheetAction" active="true" actionDetails="" delay="0"/>
+      </actions>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

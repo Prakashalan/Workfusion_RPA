@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables/>
+  <actions xsi:type="recorder:KeyboardAction" active="false" actionDetails="(Win+r)" delay="0" modifiers="4" text="r" rawCode="82" keyCode="19" keyChar="114" keyLocation="1" type="HOT_KEY_PRESS"/>
+  <actions xsi:type="recorder:KeyboardAction" active="false" actionDetails="(typed text)" delay="0" text="notepad" type="KEY_TYPE"/>
+  <actions xsi:type="recorder:KeyboardAction" active="false" actionDetails="({ENTER})" delay="0" text="{ENTER}" rawCode="10" keyCode="28" keyChar="13" keyLocation="4"/>
+  <actions xsi:type="recorder:KeyboardAction" active="false" actionDetails="(typed text)" delay="0" text="Hi vignesh....................i love you !!!!!" type="KEY_TYPE"/>
+  <actions xsi:type="recorder:LaunchAppAction" active="true" actionDetails="(C:\Users\PrakashPala...; wait for 0ms; poll every 0ms)" delay="0" command="C:\Users\PrakashPalani\AppData\Local\Programs\Microsoft VS Code\Code.exe" autoDetectWindow="true"/>
+  <actions xsi:type="recorder:SwitchWindowAction" active="true" actionDetails="(Nested Lists.py - python programs - Visual Studio ...)" delay="0" clazz="Chrome_WidgetWin_1" title="Nested Lists.py - python programs - Visual Studio Code" timeoutMs="0" modeType="SELECTED">
+    <actions xsi:type="recorder:MinimizeCurrentWindowAction" active="true" actionDetails="" delay="0"/>
+    <actions xsi:type="recorder:MaximizeCurrentWindowAction" active="true" actionDetails="" delay="0"/>
+    <actions xsi:type="recorder:CloseCurrentWindowAction" active="true" actionDetails="" delay="0"/>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

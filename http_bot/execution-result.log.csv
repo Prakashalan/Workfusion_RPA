@@ -1,0 +1,73 @@
+"name","type","value"
+"rs","TABLE","[]"
+"x_coord","STRING",""
+"y_string","STRING","y+128"
+"src","LIST","[]"
+"pass","STRING","rap@12345"
+"format","STRING","pdf"
+"x_string","STRING",""
+"pdf_div","LIST","""[BG
+Balasubramani Govindarajan
+non_incident
+Tue 05-11
+No preview is available.
+Inbox
+File1.pdf
+File2.pdf
+File3.pdf
++1, PP
+Prakash Palani
+Excel_covert_GEM-folder
+Thu 31-10
+No preview is available.
+Sent Items
+GEM_output.xlsx, RR
+Raghuraman Ramamurthy
+Data extraction from Gopal's mailbox
+12-09-2019
+Let’s touch base with Gopal today for him to login for the bot and start running it. Let it at least finish downloading today completely. Regards Raghu From: Rajesh Prabu <rajesh.p@global-engine.com> Date: Thursday, 12 September 2019 at 9:57 AM
+Inbox, J
+jaishree.r
+Dedupe automation
+11-09-2019
+Dear Raghu, Find attached process flow and notepad sample and request to not share this further. Average monthly volume is 17k. Rest will discuss in person. Regards, Jaishree R From: jaishree.r Sent: Wednesday, September 11, 2019 14:21 To: Ragh
+Inbox
+DEDUPE.pdf
+Statement_Of_Account_ TN3004TW31215 .txt, SV
+Sundararaman Vaidyanathan
+paper work
+06-09-2019
+No preview is available.
+Inbox
+301A1061-1.pdf
+4040T77P03 Cert 711247.
+PN - 9043185-16 HLEMUS1234282Lot 992 MAB manifest and non-incident.
++7, SV
+Sundararaman Vaidyanathan
+paper work-4
+06-09-2019
+No preview is available.
+Inbox
+PN 9514M71P07 TAG G88250., SV
+Sathyanarayanan Vaithianathan
+(No subject)
+03-09-2019
+Check this pdf
+Inbox
+diplomacourses.pdf, PP
+Prakash Palani
+
+(No subject)
+03-09-2019
+No preview is available.
+Sent Items
+sample.pdf]"""
+"ForEachAction1719568067_index","NUMBER","0"
+"loop","NUMBER","8"
+"name","STRING","prakash.palani@rap.ventures"
+"pdf_result","STRING",""
+"y","NUMBER","120"
+"listofdiv","LIST","[pdf]"
+"y_coord","NUMBER","176.0"
+"text","STRING","hasattachments:"
+"element","NUMBER","2"

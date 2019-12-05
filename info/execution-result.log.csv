@@ -1,0 +1,36 @@
+"name","type","value"
+"val","NUMBER","10"
+"result","TABLE","[]"
+"str_add","STRING","""Grand Canal Plaza
+Grand Canal Street Upper
+Dublin , Dublin 4
+Ireland"""
+"str_url","STRING","http://www.accenture.com"
+"address","LIST","""[1330 Broadway, Suite 1530
+
+Oakland , California 94612
+United States, 73 W Monroe St
+
+Chicago , Illinois 60603
+United States, 1750 N. Collins Blvd.
+Suite 200V
+Richardson , Illinois 75080
+United States, 91 Gregory Ln
+Suite 21
+Pleasant Hill , California 94523
+United States, 98 Williams Avenue
+
+Dartmouth , Nova Scotia B3B 0A1
+Canada, 801 2nd Ave
+Suite 800
+Seattle , Washington 98104
+United States, Grand Canal Plaza
+Grand Canal Street Upper
+Dublin , Dublin 4
+Ireland]"""
+"ls","LIST","""[21Tech, 606 Digital, 641Partners, LLC, AARIN INC, ABM Integrated Solutions, Accel CRM, Accenture PLC, Acumen ERP, Acumen Group, Aderas, Inc]"""
+"val1","NUMBER","1"
+"name","LIST","""[21Tech, 606 Digital, 641Partners, LLC, AARIN INC, ABM Integrated Solutions, Accel CRM, Accenture PLC]"""
+"str_name","STRING","Accenture PLC"
+"url","LIST","""[http://www.21tech.com, http://606digital.com, http://www.641partners.com, http://www.aarininc.com, http://www.abmis.ca, http://www.accelcrm.com, http://www.accenture.com]"""
+"assign","NUMBER","7"

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="name" type="STRING" value=""/>
+    <variable name="name1" type="STRING" value=""/>
+    <variable name="value" type="STRING" value=""/>
+    <variable name="number1" type="STRING" value=""/>
+    <variable name="val" type="STRING" value=""/>
+  </variables>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+    <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(https://www.indiapost.gov.in/vas/Pages/IndiaPostHome.aspx)" delay="0" url="https://www.indiapost.gov.in/vas/Pages/IndiaPostHome.aspx" type="CHROME"/>
+    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_lblCaptcha&quot;] xpath)" delay="0" varName="name" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_lblCaptcha&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'name')" delay="0" comment="" varName="name" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+      <stringToStringConversion targetType="STRING"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(name = &quot;Enter characters as displayed in image&quot;)" delay="0" leftOperand="${name}" rightOperand="Enter characters as displayed in image" leftOperandType="VARIABLE" rightOperandType="STRING">
+      <ifBlock active="true">
+        <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divimgcaptcha&quot;]/span xpath)" delay="0" varName="value" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divimgcaptcha&quot;]/span" searchInFrames="true" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+        <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'value')" delay="0" varName="value" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+          <stringToStringConversion targetType="STRING"/>
+          <delimitedListConversion targetType="LIST" trimValues="false"/>
+          <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+        </actions>
+        <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;] xpath)" delay="0" varName="value" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+      </ifBlock>
+      <elseBlock active="true">
+        <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(name = &quot;Enter the Second number&quot;)" delay="0" leftOperand="${name}" rightOperand="Enter the Second number" leftOperandType="VARIABLE" rightOperandType="STRING">
+          <ifBlock active="true">
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span xpath)" delay="0" varName="number1" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+            <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;input = ['number1'],&#xD;&#xA;output = 'val'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;def val = number1.split(',')[2]&#xD;&#xA;&#xD;&#xA;}"/>
+            <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'val')" delay="0" varName="val" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+              <stringToStringConversion targetType="STRING"/>
+              <delimitedListConversion targetType="LIST" trimValues="false"/>
+              <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+            </actions>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;] xpath)" delay="0" varName="val" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+          </ifBlock>
+          <elseBlock active="true">
+            <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(name = &quot;Enter the Third number&quot;)" delay="0" leftOperand="${name}" rightOperand="Enter the Third number" leftOperandType="VARIABLE" rightOperandType="STRING">
+              <ifBlock active="true">
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span xpath)" delay="0" varName="number1" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;input = ['number1'],&#xD;&#xA;output = 'val'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;def val = number1.split(',')[3]&#xD;&#xA;&#xD;&#xA;}"/>
+                <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'val')" delay="0" varName="val" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+                  <stringToStringConversion targetType="STRING"/>
+                  <delimitedListConversion targetType="LIST" trimValues="false"/>
+                  <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                </actions>
+                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;] xpath)" delay="0" varName="val" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+              </ifBlock>
+              <elseBlock active="true">
+                <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(name = &quot;Enter the Fourth number&quot;)" delay="0" leftOperand="${name}" rightOperand="Enter the Fourth number" leftOperandType="VARIABLE" rightOperandType="STRING">
+                  <ifBlock active="true">
+                    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span xpath)" delay="0" varName="number1" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                    <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;input = ['number1'],&#xD;&#xA;output = 'val'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;def val = number1.split(',')[4]&#xD;&#xA;&#xD;&#xA;}"/>
+                    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'val')" delay="0" comment="" varName="val" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+                      <stringToStringConversion targetType="STRING"/>
+                      <delimitedListConversion targetType="LIST" trimValues="false"/>
+                      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                    </actions>
+                    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;] xpath)" delay="0" varName="val" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+                  </ifBlock>
+                  <elseBlock active="true">
+                    <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(name = &quot;Enter the First number&quot;)" delay="0" leftOperand="${name}" rightOperand="Enter the First number" leftOperandType="VARIABLE" rightOperandType="STRING">
+                      <ifBlock active="true">
+                        <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span xpath)" delay="0" varName="number1" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                        <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;input = ['number1'],&#xD;&#xA;output = 'val'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;def val = number1.split(',')[1]&#xD;&#xA;&#xD;&#xA;}"/>
+                        <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'val')" delay="0" varName="val" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+                          <stringToStringConversion targetType="STRING"/>
+                          <delimitedListConversion targetType="LIST" trimValues="false"/>
+                          <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                        </actions>
+                        <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;] xpath)" delay="0" varName="val" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+                      </ifBlock>
+                      <elseBlock active="true">
+                        <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(name = &quot;Enter the Fifth number&quot;)" delay="0" leftOperand="${name}" rightOperand="Enter the Fifth number" leftOperandType="VARIABLE" rightOperandType="STRING">
+                          <ifBlock active="true">
+                            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span xpath)" delay="0" varName="number1" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]/span" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+                            <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" script="@CustomScriptAction(&#xD;&#xA;input = ['number1'],&#xD;&#xA;output = 'val'&#xD;&#xA;)&#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;def val = number1.split(',')[5]&#xD;&#xA;&#xD;&#xA;}"/>
+                            <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'val')" delay="0" varName="val" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+                              <stringToStringConversion targetType="STRING"/>
+                              <delimitedListConversion targetType="LIST" trimValues="false"/>
+                              <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                            </actions>
+                            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;] xpath)" delay="0" varName="val" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+                          </ifBlock>
+                          <elseBlock active="true">
+                            <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(name = &quot;Evaluate the Expression&quot;)" delay="0" leftOperand="${name}" rightOperand="Evaluate the Expression" leftOperandType="VARIABLE" rightOperandType="STRING">
+                              <ifBlock active="true">
+                                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;] xpath)" delay="0" comment="" varName="value" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_divMathCaptcha&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false" elementAttribute=""/>
+                                <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="" delay="0" comment="4 - 0 =" script="import groovy.util.Eval&#xD;&#xA;@CustomScriptAction(&#xD;&#xA;input = ['value'],&#xD;&#xA;output = 'val'&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;def customScript() {&#xD;&#xA;&#xD;&#xA;def str= value&#xD;&#xA;def arrayElement = new String[7];&#xD;&#xA;arrayElement=str.split(&quot;=&quot;)&#xD;&#xA;def arrayAsString = arrayElement.join(&quot; &quot;)&#xD;&#xA;def val = RNumber.of(Eval.me(arrayAsString))&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
+                                <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'val')" delay="0" varName="val" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+                                  <stringToStringConversion targetType="STRING"/>
+                                  <simpleNumberConversion targetType="NUMBER"/>
+                                  <delimitedListConversion targetType="LIST" trimValues="false"/>
+                                  <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+                                </actions>
+                                <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(set by //*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;] xpath)" delay="0" varName="val" webElementLocator="//*[@id=&quot;ctl00_SPWebPartManager1_g_aa197fec_b38c_41a8_b14e_a11722636b37_ctl00_ucCaptcha1_txtCaptcha&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" type="SET_VALUE" useElementAttribute="false"/>
+                              </ifBlock>
+                              <elseBlock active="true"/>
+                            </actions>
+                          </elseBlock>
+                        </actions>
+                      </elseBlock>
+                    </actions>
+                  </elseBlock>
+                </actions>
+              </elseBlock>
+            </actions>
+          </elseBlock>
+        </actions>
+      </elseBlock>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

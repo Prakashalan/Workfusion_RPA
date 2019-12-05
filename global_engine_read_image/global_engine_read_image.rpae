@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="read_folder" type="LIST" value="[]"/>
+    <variable name="read_folder_count" type="NUMBER" value="0"/>
+    <variable name="read_text" type="STRING" value=""/>
+  </variables>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0">
+    <actions xsi:type="recorder:FileListFolderAction" active="true" actionDetails="('F:\global_engine_format\com...' to ${read_folder})" delay="0" targetVariable="read_folder" path="F:\global_engine_format\commercial_trace_splitted\bill_of_sale_splitted" type="FILES" includeSubFolders="false" filterBySize="false" filterByDates="false" dateFilterType="FIXED" from="2019-11-03 13:16:41" to="2019-11-03 13:05:37" dateFormat="yyyy-MM-dd HH:mm:ss" unit="DAYS" filterByPattern="false" pattern=""/>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'read_folder')" delay="0" varName="read_folder">
+      <bigDecimalExpressionHandler/>
+      <listExpressionHandler operationType="GET_SIZE" targetVarName="read_folder_count"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'read_folder_count')" delay="0" comment="" varName="read_folder_count" activeConversion="SIMPLE_NUMBER" type="FROM_VARIABLE">
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+    <actions xsi:type="recorder:ForeachAction" active="true" actionDetails="(element) in (read_folder)" delay="0" varName="read_folder" pointerName="element">
+      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'element')" delay="0" varName="element" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+        <stringToStringConversion targetType="STRING"/>
+        <delimitedListConversion targetType="LIST" trimValues="false"/>
+        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+      </actions>
+      <actions xsi:type="recorder:OcrAction" active="true" actionDetails="(to 'read_text' rectangle 742 x 527)" delay="0" offsetX="-5" imageName="1572788129960-anchor-1572788130083.apng" fullImageName="1572788129960.png" type="CONTROL" anchorOffsetX="5" varName="read_text" width="742" height="527" language="English"/>
+      <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'read_text')" delay="0" varName="read_text" activeConversion="STRING_TO_STRING" type="FROM_VARIABLE">
+        <stringToStringConversion targetType="STRING"/>
+        <delimitedListConversion targetType="LIST" trimValues="false"/>
+        <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+      </actions>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

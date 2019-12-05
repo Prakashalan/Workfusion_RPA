@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="name" type="STRING" value=""/>
+    <variable name="address" type="STRING" value=""/>
+  </variables>
+  <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(double-click left button)" delay="0" imageName="1564464526761-anchor-1564464526783.apng" fullImageName="1564464526761.png" type="IMAGE" anchorOffsetY="2" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1" clickType="DOUBLE_CLICK"/>
+  <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 5000 ms" delay="5000"/>
+  <actions xsi:type="recorder:OcrAction" active="true" actionDetails="(to 'name' rectangle 47 x 24)" delay="0" offsetY="9" imageName="1564465677465-anchor-1564465677493.apng" fullImageName="1564465677465.png" type="CONTROL" anchorOffsetX="62" anchorOffsetY="3" varName="name" width="47" height="24" language="English"/>
+  <actions xsi:type="recorder:OcrAction" active="true" actionDetails="(to 'address' rectangle 239 x 23)" delay="0" offsetX="-4" offsetY="26" imageName="1564465768665-anchor-1564465768683.apng" fullImageName="1564465768665.png" type="CONTROL" anchorOffsetX="5" anchorOffsetY="5" varName="address" width="239" height="23" language="English"/>
+  <actions xsi:type="recorder:LaunchAppAction" active="true" actionDetails="(notepad.exe; wait for 0ms; poll every 0ms)" delay="0" command="notepad.exe" autoDetectWindow="true"/>
+  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(from variable 'name')" delay="0" varName="name" type="TEXT_FROM_VAR"/>
+  <actions xsi:type="recorder:KeyboardAction" active="true" actionDetails="(from variable 'address')" delay="0" varName="address" type="TEXT_FROM_VAR"/>
+  <actions xsi:type="recorder:BaseNestedAction" active="true" actionDetails="Group" delay="0"/>
+  <settings/>
+</recorder:ActionFlow>

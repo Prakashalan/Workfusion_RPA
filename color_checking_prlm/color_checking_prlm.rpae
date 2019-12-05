@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="list" type="LIST" value="[]"/>
+    <variable name="rs" type="NUMBER" value="0"/>
+  </variables>
+  <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(https://codepen.io/eksch/pen/wagdyZ?editors=0010)" delay="0" url="https://codepen.io/eksch/pen/wagdyZ?editors=0010" type="CHROME">
+    <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@id=&quot;rendered-js&quot;] xpath)" delay="0" comment="" varName="list" webElementLocator="//div[@id=&quot;rendered-js&quot;]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="true" elementAttribute="inner_array">
+      <parentFrameXpath>innerhtml</parentFrameXpath>
+      <parentFrameXpath></parentFrameXpath>
+    </actions>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'list')" delay="0" varName="list">
+      <bigDecimalExpressionHandler/>
+      <listExpressionHandler operationType="GET_SIZE" targetVarName="rs"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+    </actions>
+    <actions xsi:type="recorder:ClipboardAction" active="true" actionDetails="(from 'rs')" delay="0" comment="" varName="rs" activeConversion="SIMPLE_NUMBER" type="FROM_VARIABLE">
+      <simpleNumberConversion targetType="NUMBER"/>
+      <delimitedListConversion targetType="LIST" trimValues="false"/>
+      <delimitedTableConversion targetType="TABLE" trimValues="false"/>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

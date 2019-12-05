@@ -1,0 +1,7 @@
+"name","type","value"
+"email_id","STRING","prakash.palani@rap.ventures"
+"password","STRING","rap@12345"
+"subject","LIST","[]"
+"name","LIST","[]"
+"resulttable","TABLE","[]"
+"body","LIST","[]"

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="ls" type="LIST" value="[]"/>
+    <variable name="val" type="NUMBER" value="0"/>
+    <variable name="assign" type="NUMBER" value="1"/>
+    <variable name="name" type="LIST" value="[]"/>
+    <variable name="address" type="LIST" value="[]"/>
+    <variable name="url" type="LIST" value="[]"/>
+    <variable name="result" type="TABLE" value="[]"/>
+    <variable name="str_name" type="STRING" value=""/>
+    <variable name="str_add" type="STRING" value=""/>
+    <variable name="str_url" type="STRING" value=""/>
+    <variable name="val1" type="NUMBER" value="1"/>
+  </variables>
+  <actions xsi:type="recorder:WhileAction" active="true" actionDetails="(val1 &lt;= &quot;26&quot;)" delay="0" leftOperand="${val1}" rightOperand="26" operator="LESS_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="NUMBER">
+    <actions xsi:type="recorder:OpenURLAction" active="true" actionDetails="(http://partners.infor.com/?chkMain=check&amp;na=true&amp;co=Canada&amp;co=United%20States&amp;page=${val1})" delay="0" url="http://partners.infor.com/?chkMain=check&amp;na=true&amp;co=Canada&amp;co=United%20States&amp;page=${val1}" type="CHROME" waitTimeout="20000">
+      <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 2000 ms" delay="2000"/>
+      <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
+        <tryBlock active="true">
+          <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1568883375378-anchor-1568883375429.apng" fullImageName="1568883375378.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+          <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;lhs&quot;]/h2 xpath)" delay="0" varName="ls" webElementLocator="//div[@class=&quot;lhs&quot;]/h2" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+          <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'ls')" delay="0" varName="ls">
+            <bigDecimalExpressionHandler/>
+            <listExpressionHandler operationType="GET_SIZE" targetVarName="val"/>
+            <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+          </actions>
+          <actions xsi:type="recorder:WhileAction" active="true" actionDetails="(val >= assign)" delay="0" leftOperand="${val}" rightOperand="${assign}" operator="GREATER_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+            <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="//div[@class=&quot;grid&quot;]/div[${assign}]/div/h2" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;partnerDetails&quot;]/div/div[1]/h1 xpath)" delay="0" varName="str_name" webElementLocator="//*[@id=&quot;partnerDetails&quot;]/div/div[1]/h1" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;partnerDetails&quot;]/div/div[1]/h2 xpath)" delay="0" varName="str_add" webElementLocator="//*[@id=&quot;partnerDetails&quot;]/div/div[1]/h2" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;partnerDetails&quot;]/div/div[1]/a[1] xpath)" delay="0" varName="str_url" webElementLocator="//*[@id=&quot;partnerDetails&quot;]/div/div[1]/a[1]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'name')" delay="0" varName="name">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH" targetVarName="str_name"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'address')" delay="0" varName="address">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH" targetVarName="str_add"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'url')" delay="0" varName="url">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH" targetVarName="str_url"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+            </actions>
+            <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1568884870895-anchor-1568884870906-copy.apng" fullImageName="1568884870895.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+            <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+            <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'assign')" delay="0" varName="assign">
+              <bigDecimalExpressionHandler expression="${assign}+1"/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+            </actions>
+          </actions>
+        </tryBlock>
+        <catchBlock active="true">
+          <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //div[@class=&quot;lhs&quot;]/h2 xpath)" delay="0" varName="ls" webElementLocator="//div[@class=&quot;lhs&quot;]/h2" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+          <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'ls')" delay="0" varName="ls">
+            <bigDecimalExpressionHandler/>
+            <listExpressionHandler operationType="GET_SIZE" targetVarName="val"/>
+            <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+          </actions>
+          <actions xsi:type="recorder:WhileAction" active="true" actionDetails="(val >= assign)" delay="0" leftOperand="${val}" rightOperand="${assign}" operator="GREATER_THAN_OR_EQUALS" leftOperandType="VARIABLE" rightOperandType="VARIABLE">
+            <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" type="WEB_ELEMENT" webElementLocator="//div[@class=&quot;grid&quot;]/div[${assign}]/div/h2" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;partnerDetails&quot;]/div/div[1]/h1 xpath)" delay="0" varName="str_name" webElementLocator="//*[@id=&quot;partnerDetails&quot;]/div/div[1]/h1" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;partnerDetails&quot;]/div/div[1]/h2 xpath)" delay="0" varName="str_add" webElementLocator="//*[@id=&quot;partnerDetails&quot;]/div/div[1]/h2" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+            <actions xsi:type="recorder:WebElementAction" active="true" actionDetails="(get by //*[@id=&quot;partnerDetails&quot;]/div/div[1]/a[1] xpath)" delay="0" varName="str_url" webElementLocator="//*[@id=&quot;partnerDetails&quot;]/div/div[1]/a[1]" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" useElementAttribute="false"/>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'name')" delay="0" varName="name">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH" targetVarName="str_name"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'address')" delay="0" varName="address">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH" targetVarName="str_add"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+            </actions>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'url')" delay="0" varName="url">
+              <bigDecimalExpressionHandler/>
+              <listExpressionHandler operationType="PUSH" targetVarName="str_url"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+            </actions>
+            <actions xsi:type="recorder:MouseClickAction" active="true" actionDetails="(click left button)" delay="0" imageName="1568884870895-anchor-1568884870906.apng" fullImageName="1568884870895.png" type="IMAGE" searchInFrames="false" webElementLocatorType="XPATH" exactMatch="true" button="1"/>
+            <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+            <actions xsi:type="recorder:WaitAction" active="true" actionDetails="for 3000 ms" delay="3000"/>
+            <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'assign')" delay="0" varName="assign">
+              <bigDecimalExpressionHandler expression="${assign}+1"/>
+              <listExpressionHandler operationType="PUSH"/>
+              <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+            </actions>
+          </actions>
+        </catchBlock>
+      </actions>
+    </actions>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'result')" delay="0" varName="result">
+      <bigDecimalExpressionHandler/>
+      <listExpressionHandler operationType="PUSH"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="name"/>
+    </actions>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'result')" delay="0" varName="result">
+      <bigDecimalExpressionHandler/>
+      <listExpressionHandler operationType="PUSH"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="address"/>
+    </actions>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'result')" delay="0" varName="result">
+      <bigDecimalExpressionHandler/>
+      <listExpressionHandler operationType="PUSH"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_COLUMN" targetVarName="url"/>
+    </actions>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'assign')" delay="0" varName="assign">
+      <bigDecimalExpressionHandler expression="1"/>
+      <listExpressionHandler operationType="PUSH"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+    </actions>
+    <actions xsi:type="recorder:ExpressionValueAction" active="true" actionDetails="(to 'val1')" delay="0" varName="val1">
+      <bigDecimalExpressionHandler expression="${val1}+1"/>
+      <listExpressionHandler operationType="PUSH"/>
+      <tableExpressionHandler operationType="PUSH" tablePushType="AS_ROW"/>
+    </actions>
+    <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Praka...op\result.xlsx&quot;)" delay="0" filePath="C:\Users\PrakashPalani\Desktop\result.xlsx" autoSaveFile="true">
+      <actions xsi:type="recorder:ExcelSetRangeAction" active="true" actionDetails="('result' to A1::END)" delay="0" sourceVariable="result" coordinateFrom="A1:" coordinateTo=""/>
+    </actions>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

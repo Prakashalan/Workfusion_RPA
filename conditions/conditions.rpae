@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recorder="http://www.workfusion.com/recorder/v2.3.0.1" ignoreDelays="false">
+  <variables>
+    <variable name="pm" type="TABLE" value="[]"/>
+  </variables>
+  <actions xsi:type="recorder:OpenSpreadsheetAction" active="true" actionDetails="(&quot;C:\Users\Prave...esktop\rs.xlsx&quot;)" delay="0" filePath="C:\Users\Praveena\Desktop\rs.xlsx">
+    <actions xsi:type="recorder:ExcelGetRangeAction" active="true" actionDetails="(A2:END to 'pm')" delay="0" targetVariable="pm" coordinateFrom="A2"/>
+  </actions>
+  <settings/>
+</recorder:ActionFlow>

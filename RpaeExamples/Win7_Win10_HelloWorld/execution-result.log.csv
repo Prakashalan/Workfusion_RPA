@@ -1,0 +1,7 @@
+"name","type","value"
+"file_name_template","STRING","%USERPROFILE%"
+"file_list","TABLE","""[[Imagine you need to do a simple thing many many times in a row... Booooooring... Not for a bot :) Let me create a few files and save them for you., %USERPROFILE%\Documents\BotCreatedHelloWorld1.txt], [This is 2nd file..., %USERPROFILE%\Documents\BotCreatedHelloWorld2.txt], [This is 3rd..., %USERPROFILE%\Documents\BotCreatedHelloWorld3.txt], [This is 4th... and all of them are saved to """"My documents"""", %USERPROFILE%\Documents\BotCreatedHelloWorld4.txt]]"""
+"row","LIST","""[This is 4th... and all of them are saved to """"My documents"""", %USERPROFILE%\Documents\BotCreatedHelloWorld4.txt]"""
+"ForEachAction575388181_index","NUMBER","1"
+"ForEachAction1860844481_index","NUMBER","3"
+"element","STRING","%USERPROFILE%\Documents\BotCreatedHelloWorld4.txt"
